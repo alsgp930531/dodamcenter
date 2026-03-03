@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
   });
 
   // 텔레그램 알림 (실패해도 응답에 영향 없음)
-  sendTelegramNotification(formatPhoneBookingMessage({ name, phone, preferredDate, preferredTime, note }));
+  await sendTelegramNotification(formatPhoneBookingMessage({ name, phone, preferredDate, preferredTime, note }));
 
   return NextResponse.json(booking, { status: 201 });
 }

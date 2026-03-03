@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
   });
 
   // 텔레그램 알림 (실패해도 응답에 영향 없음)
-  sendTelegramNotification(formatInquiryMessage({ name, phone, email, counselingType, message }));
+  await sendTelegramNotification(formatInquiryMessage({ name, phone, email, counselingType, message }));
 
   return NextResponse.json(inquiry, { status: 201 });
 }
