@@ -28,8 +28,8 @@ const WAVE_FREQ = 2; // number of complete waves around the ribbon
 const NUM_PTS = 400;
 const RIBBON_COLOR = { r: 245, g: 242, b: 237 };
 const SHADOW_COLOR = { r: 0, g: 0, b: 0 };
-const TEXT_LABEL = 'DODAM CENTER   ';
-const TEXT_COUNT = 6; // number of text labels around the ribbon
+const TEXT_LABEL = 'DODAM CENTER · ';
+const TEXT_COUNT = 10; // number of text labels around the ribbon
 const TEXT_SPEED = 0.00015; // radians per ms for text animation
 
 function drawRibbon(
