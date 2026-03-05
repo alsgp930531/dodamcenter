@@ -29,10 +29,10 @@ export default function BrandStory() {
     offset: ['start end', 'end start'],
   });
 
-  // Image reveal - slides up from bottom
-  const img2Y = useTransform(s2Progress, [0, 0.4], ['12%', '0%']);
-  const img2Scale = useTransform(s2Progress, [0, 0.4], [1.15, 1]);
-  const img2Opacity = useTransform(s2Progress, [0.05, 0.25], [0, 1]);
+  // Curtain reveal - beige overlay slides away, revealing image
+  const curtainX = useTransform(s2Progress, [0.05, 0.4], ['0%', '105%']);
+  const textX = useTransform(s2Progress, [0.15, 0.45], [60, 0]);
+  const textOpacity = useTransform(s2Progress, [0.15, 0.4], [0, 1]);
 
   return (
     <section className="relative bg-white">
@@ -105,45 +105,33 @@ export default function BrandStory() {
 
       {/* Section 2: Split image + text */}
       <div ref={section2Ref} className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-        {/* Left - Image reveals by sliding up */}
-        <div className="relative h-[60vh] lg:h-auto overflow-hidden bg-dark">
+        {/* Left - Image with curtain reveal */}
+        <div className="relative h-[60vh] lg:h-auto overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url('/images/photos/empathy-hands.jpg')`,
+            }}
+          />
+          {/* Beige curtain that slides away to the right */}
           <motion.div
-            style={{ y: img2Y, scale: img2Scale, opacity: img2Opacity }}
-            className="absolute inset-0"
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url('/images/photos/empathy-hands.jpg')`,
-              }}
-            />
-          </motion.div>
+            style={{ x: curtainX }}
+            className="absolute inset-0 bg-beige-50 z-10"
+          />
         </div>
 
-        {/* Right - Text with staggered scroll animations */}
+        {/* Right - Text slides in from right */}
         <div className="flex items-center bg-beige-50 px-6 md:px-16 lg:px-20 py-16 md:py-20 lg:py-0">
-          <div>
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="inline-block text-[11px] tracking-[0.4em] text-accent uppercase"
-            >
+          <motion.div style={{ x: textX, opacity: textOpacity }}>
+            <span className="inline-block text-[11px] tracking-[0.4em] text-accent uppercase">
               Our Value
-            </motion.span>
+            </span>
 
-            <motion.h3
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-4 text-3xl md:text-4xl font-semibold text-black leading-tight"
-            >
+            <h3 className="mt-4 text-3xl md:text-4xl font-semibold text-black leading-tight">
               진심으로 공감하고,
               <br />
               실질적 변화를 이끕니다
-            </motion.h3>
+            </h3>
 
             <div className="mt-10 space-y-8">
               {[
@@ -185,7 +173,7 @@ export default function BrandStory() {
                 </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
