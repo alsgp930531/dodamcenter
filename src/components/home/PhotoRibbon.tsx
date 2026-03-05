@@ -1,18 +1,18 @@
 'use client';
 
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const photos = [
-  '/images/photos/counseling-1.jpg',
-  '/images/photos/counseling-2.jpg',
-  '/images/photos/counseling-3.jpg',
-  '/images/photos/counseling-4.jpg',
-  '/images/photos/counseling-5.jpg',
-  '/images/photos/counseling-6.jpg',
-  '/images/photos/counseling-7.jpg',
-  '/images/photos/seminar-5.jpg',
+  { src: '/images/photos/counseling-1.jpg', position: 'center' },
+  { src: '/images/photos/counseling-2.jpg', position: 'center' },
+  { src: '/images/photos/counseling-3.jpg', position: '35% center' },
+  { src: '/images/photos/counseling-4.jpg', position: '60% center' },
+  { src: '/images/photos/counseling-5.jpg', position: 'center' },
+  { src: '/images/photos/counseling-6.jpg', position: '60% center' },
+  { src: '/images/photos/counseling-7.jpg', position: '45% 30%' },
+  { src: '/images/photos/seminar-5.jpg', position: 'center' },
 ];
 
 const COUNT = photos.length;
@@ -25,7 +25,7 @@ const RIBBON_R = 450;
 const BAND_HALF = 16;
 const WAVE_AMP = 65;
 const WAVE_FREQ = 2; // number of complete waves around the ribbon
-const NUM_PTS = 400;
+const NUM_PTS = 200;
 const RIBBON_COLOR = { r: 245, g: 242, b: 237 };
 const SHADOW_COLOR = { r: 0, g: 0, b: 0 };
 const TEXT_LABEL = 'DODAM COUNSELING CENTER · ';
@@ -235,6 +235,7 @@ function useRibbonCanvas(
   rotY: MotionValue<number>,
   rotX: MotionValue<number>,
   rotZ: MotionValue<number>,
+  isVisible: boolean,
 ) {
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -244,9 +245,9 @@ function useRibbonCanvas(
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Resize canvas to match container
     const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
+      // Cap DPR at 2 to reduce canvas size on retina displays
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const rect = sticky.getBoundingClientRect();
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
@@ -258,8 +259,12 @@ function useRibbonCanvas(
     window.addEventListener('resize', resize);
 
     let frameId: number;
-    let startTime = performance.now();
+    const startTime = performance.now();
     const draw = () => {
+      if (!isVisible) {
+        frameId = requestAnimationFrame(draw);
+        return;
+      }
       const rect = sticky.getBoundingClientRect();
       const elapsed = performance.now() - startTime;
       drawRibbon(ctx, rect.width, rect.height, rotY.get(), rotX.get(), rotZ.get(), elapsed);
@@ -271,7 +276,7 @@ function useRibbonCanvas(
       cancelAnimationFrame(frameId);
       window.removeEventListener('resize', resize);
     };
-  }, [canvasRef, stickyRef, rotY, rotX, rotZ]);
+  }, [canvasRef, stickyRef, rotY, rotX, rotZ, isVisible]);
 }
 
 // ─── Component ──────────────────────────────────────────────────────────────
@@ -279,6 +284,18 @@ export default function PhotoRibbon() {
   const containerRef = useRef<HTMLElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin: '200px' },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -297,7 +314,7 @@ export default function PhotoRibbon() {
     [-1.5, 1.5, -2, 1.5, -1.5],
   );
 
-  useRibbonCanvas(canvasRef, stickyRef, rotY, rotX, rotZ);
+  useRibbonCanvas(canvasRef, stickyRef, rotY, rotX, rotZ, isVisible);
 
   return (
     <section ref={containerRef} className="relative h-[350vh] bg-white">
@@ -308,7 +325,7 @@ export default function PhotoRibbon() {
             className="relative w-[200px] h-[270px] sm:w-[240px] sm:h-[320px] md:w-[280px] md:h-[380px] preserve-3d"
             style={{ rotateY: rotY, rotateX: rotX, rotateZ: rotZ }}
           >
-            {photos.map((src, i) => (
+            {photos.map((photo, i) => (
               <div
                 key={i}
                 className="absolute inset-0 rounded-2xl overflow-hidden shadow-xl"
@@ -318,8 +335,11 @@ export default function PhotoRibbon() {
                 }}
               >
                 <div
-                  className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url('${src}')` }}
+                  className="w-full h-full bg-cover"
+                  style={{
+                    backgroundImage: `url('${photo.src}')`,
+                    backgroundPosition: photo.position,
+                  }}
                 />
               </div>
             ))}

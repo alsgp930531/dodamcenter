@@ -17,6 +17,7 @@ const programs = [
     title: '퍼스널 브랜딩 마스터클래스',
     category: '브랜딩',
     image: '/images/photos/seminar-2.jpg',
+    imagePosition: '75% center',
     description: '나만의 강점을 찾고 브랜드를 만드는 마스터클래스',
     details: '월 2회 · 6주 과정',
     href: '/programs',
@@ -32,7 +33,7 @@ const programs = [
   {
     title: '마음 챙김 워크숍',
     category: '웰니스',
-    image: '/images/photos/counseling-6.jpg',
+    image: '/images/photos/seminar-10.jpg',
     description: '명상과 마음챙김을 통한 스트레스 관리 프로그램',
     details: '매주 수요일 · 상시 운영',
     href: '/programs',
@@ -179,8 +180,11 @@ export default function ProgramPreview() {
                       {/* Front - Image */}
                       <div className="flip-card-front rounded-2xl overflow-hidden">
                         <div
-                          className="absolute inset-0 bg-cover bg-center"
-                          style={{ backgroundImage: `url('${program.image}')` }}
+                          className="absolute inset-0 bg-cover"
+                          style={{
+                            backgroundImage: `url('${program.image}')`,
+                            backgroundPosition: program.imagePosition || 'center',
+                          }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-dark/65 via-dark/15 to-transparent" />
 

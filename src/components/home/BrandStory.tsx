@@ -114,7 +114,7 @@ export default function BrandStory() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url('/images/photos/counseling-5.jpg')`,
+                backgroundImage: `url('/images/photos/empathy-hands.jpg')`,
               }}
             />
           </motion.div>
