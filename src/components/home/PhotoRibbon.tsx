@@ -32,7 +32,7 @@ const TEXT_LABEL = 'DODAM COUNSELING CENTER · ';
 const CHAR_ANGLE_VAL = 0.022; // radians per character (letter spacing)
 const TEXT_COUNT = Math.min(
   Math.ceil((Math.PI * 2) / (CHAR_ANGLE_VAL * TEXT_LABEL.length)),
-  6, // cap to reduce draw calls
+  9, // cap to reduce draw calls
 );
 const TEXT_SPEED = 0.00015; // radians per ms for text animation
 const IDLE_FPS = 48;
