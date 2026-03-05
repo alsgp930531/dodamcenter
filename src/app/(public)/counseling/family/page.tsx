@@ -204,32 +204,32 @@ export default function FamilyCounselingPage() {
               <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-black">
                 상담 비용 안내
               </h2>
-              <div className="mt-10 bg-white rounded-3xl p-10 md:p-12">
+              <div className="group/price mt-10 bg-white rounded-3xl p-10 md:p-12 transition-all duration-300 hover:bg-dark">
                 <div className="text-5xl md:text-6xl font-bold text-accent">
                   150,000<span className="text-2xl md:text-3xl font-medium">원</span>
                 </div>
-                <div className="mt-3 text-lg text-black-light">1회 / 90분</div>
-                <div className="mt-6 w-full h-px bg-beige-200" />
+                <div className="mt-3 text-lg text-black-light group-hover/price:text-white/70 transition-colors duration-300">1회 / 90분</div>
+                <div className="mt-6 w-full h-px bg-beige-200 group-hover/price:bg-white/20 transition-colors duration-300" />
                 <ul className="mt-6 space-y-3 text-left">
-                  <li className="flex items-center gap-3 text-black-light">
+                  <li className="flex items-center gap-3 text-black-light group-hover/price:text-white/80 transition-colors duration-300">
                     <svg className="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                     가족 구성원 함께 참여하는 세션
                   </li>
-                  <li className="flex items-center gap-3 text-black-light">
+                  <li className="flex items-center gap-3 text-black-light group-hover/price:text-white/80 transition-colors duration-300">
                     <svg className="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                     가족 관계 진단 및 분석
                   </li>
-                  <li className="flex items-center gap-3 text-black-light">
+                  <li className="flex items-center gap-3 text-black-light group-hover/price:text-white/80 transition-colors duration-300">
                     <svg className="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                     세대 간 소통 훈련 프로그램
                   </li>
-                  <li className="flex items-center gap-3 text-black-light">
+                  <li className="flex items-center gap-3 text-black-light group-hover/price:text-white/80 transition-colors duration-300">
                     <svg className="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
