@@ -129,14 +129,14 @@ export default function TestingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {tests.map((test, index) => (
               <AnimatedSection key={test.title} delay={index * 0.1}>
-                <div className="h-full rounded-2xl border border-beige-200 bg-white p-6 md:p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="group h-full rounded-2xl border border-beige-200 bg-white p-6 md:p-8 transition-all duration-300 hover:bg-dark hover:shadow-lg hover:-translate-y-1">
                   {/* Icon + Title */}
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-beige-50 flex items-center justify-center text-accent shrink-0">
+                    <div className="w-12 h-12 rounded-xl bg-beige-50 group-hover:bg-accent flex items-center justify-center text-accent group-hover:text-white shrink-0 transition-all duration-300">
                       {test.icon}
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-black">
+                      <h3 className="text-lg font-semibold text-black group-hover:text-white transition-colors duration-300">
                         {test.title}
                       </h3>
                       <p className="text-sm text-accent font-medium mt-0.5">
@@ -146,16 +146,16 @@ export default function TestingPage() {
                   </div>
 
                   {/* Details */}
-                  <p className="text-sm text-black-light leading-relaxed mb-5">
+                  <p className="text-sm text-black-light group-hover:text-white/70 transition-colors duration-300 leading-relaxed mb-5">
                     {test.details}
                   </p>
 
                   {/* Price & Duration */}
-                  <div className="flex items-center justify-between pt-5 border-t border-beige-100">
-                    <span className="text-lg font-bold text-black">
+                  <div className="flex items-center justify-between pt-5 border-t border-beige-100 group-hover:border-white/20 transition-colors duration-300">
+                    <span className="text-lg font-bold text-black group-hover:text-accent transition-colors duration-300">
                       {test.price}
                     </span>
-                    <span className="text-sm text-black-light bg-beige-50 px-3 py-1 rounded-full">
+                    <span className="text-sm text-black-light group-hover:text-white/70 bg-beige-50 group-hover:bg-white/10 px-3 py-1 rounded-full transition-all duration-300">
                       {test.duration}
                     </span>
                   </div>

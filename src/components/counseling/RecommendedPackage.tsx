@@ -51,10 +51,8 @@ export default function RecommendedPackage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (
             <AnimatedSection key={pkg.title} delay={index * 0.15}>
-              <div className={`relative rounded-2xl p-8 h-full flex flex-col transition-all duration-300 group ${
-                pkg.highlight
-                  ? 'bg-white border-2 border-accent hover:bg-dark hover:text-white'
-                  : 'bg-white border border-beige-200'
+              <div className={`group relative rounded-2xl p-8 h-full flex flex-col transition-all duration-300 bg-white hover:bg-dark ${
+                pkg.highlight ? 'border-2 border-accent' : 'border border-beige-200'
               }`}>
                 {pkg.badge && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-4 py-1.5 rounded-full">
@@ -62,10 +60,10 @@ export default function RecommendedPackage() {
                   </span>
                 )}
 
-                <h3 className={`text-xl font-bold mb-2 ${pkg.highlight ? 'text-black group-hover:text-white' : 'text-black'}`}>
+                <h3 className="text-xl font-bold mb-2 text-black group-hover:text-white transition-colors duration-300">
                   {pkg.title}
                 </h3>
-                <p className={`text-sm mb-6 ${pkg.highlight ? 'text-black-light group-hover:text-white/70' : 'text-black-light'}`}>
+                <p className="text-sm mb-6 text-black-light group-hover:text-white/70 transition-colors duration-300">
                   {pkg.description}
                 </p>
 
@@ -73,18 +71,18 @@ export default function RecommendedPackage() {
                   {pkg.isGovSupported ? (
                     <div>
                       <span className="text-3xl font-bold text-accent">무료</span>
-                      <span className={`ml-2 text-sm line-through ${pkg.highlight ? 'text-black-light group-hover:text-white/50' : 'text-black-light'}`}>
+                      <span className="ml-2 text-sm line-through text-black-light group-hover:text-white/50 transition-colors duration-300">
                         {pkg.originalPrice.toLocaleString()}원
                       </span>
                     </div>
                   ) : (
                     <div>
-                      <span className={`text-3xl font-bold ${pkg.highlight ? 'text-black group-hover:text-white' : 'text-black'}`}>
+                      <span className="text-3xl font-bold text-black group-hover:text-accent transition-colors duration-300">
                         {pkg.price.toLocaleString()}
                       </span>
-                      <span className={`text-sm ml-1 ${pkg.highlight ? 'text-black-light group-hover:text-white/70' : 'text-black-light'}`}>원</span>
+                      <span className="text-sm ml-1 text-black-light group-hover:text-white/70 transition-colors duration-300">원</span>
                       {pkg.originalPrice > pkg.price && (
-                        <span className={`ml-2 text-sm line-through ${pkg.highlight ? 'text-black-light group-hover:text-white/50' : 'text-black-light'}`}>
+                        <span className="ml-2 text-sm line-through text-black-light group-hover:text-white/50 transition-colors duration-300">
                           {pkg.originalPrice.toLocaleString()}원
                         </span>
                       )}
@@ -95,10 +93,10 @@ export default function RecommendedPackage() {
                 <ul className="space-y-3 mb-8 flex-1">
                   {pkg.items.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <svg className={`w-5 h-5 shrink-0 mt-0.5 ${pkg.highlight ? 'text-accent' : 'text-accent'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <svg className="w-5 h-5 shrink-0 mt-0.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className={`text-sm ${pkg.highlight ? 'text-black-light group-hover:text-white/80' : 'text-black-light'}`}>{item}</span>
+                      <span className="text-sm text-black-light group-hover:text-white/80 transition-colors duration-300">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -108,11 +106,7 @@ export default function RecommendedPackage() {
                     무료 대상 확인 신청
                   </Button>
                 ) : (
-                  <Button
-                    href="/contact"
-                    variant={pkg.highlight ? 'primary' : 'outline'}
-                    className="w-full"
-                  >
+                  <Button href="/contact" variant="outline" className="w-full group-hover:bg-accent group-hover:text-white group-hover:border-accent">
                     패키지 신청
                   </Button>
                 )}
