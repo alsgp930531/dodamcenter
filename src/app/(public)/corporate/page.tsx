@@ -129,28 +129,30 @@ export default function CorporatePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
               <AnimatedSection key={plan.name} delay={index * 0.15}>
-                <div className={`relative rounded-2xl p-8 h-full flex flex-col ${
-                  plan.popular ? 'bg-dark text-white ring-2 ring-accent' : 'bg-white border border-beige-200'
+                <div className={`relative rounded-2xl p-8 h-full flex flex-col transition-all duration-300 ${
+                  plan.popular
+                    ? 'bg-white border border-beige-200 hover:bg-dark hover:text-white hover:ring-2 hover:ring-accent group/card'
+                    : 'bg-white border border-beige-200'
                 }`}>
                   {plan.popular && (
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-4 py-1.5 rounded-full">
                       인기
                     </span>
                   )}
-                  <h3 className={`text-2xl font-bold mb-1 ${plan.popular ? 'text-white' : 'text-black'}`}>{plan.name}</h3>
-                  <p className={`text-sm mb-4 ${plan.popular ? 'text-white/70' : 'text-black-light'}`}>{plan.description}</p>
-                  <div className={`text-2xl font-bold mb-6 ${plan.popular ? 'text-accent' : 'text-accent'}`}>{plan.price}</div>
+                  <h3 className={`text-2xl font-bold mb-1 ${plan.popular ? 'text-black group-hover/card:text-white' : 'text-black'}`}>{plan.name}</h3>
+                  <p className={`text-sm mb-4 ${plan.popular ? 'text-black-light group-hover/card:text-white/70' : 'text-black-light'}`}>{plan.description}</p>
+                  <div className="text-2xl font-bold mb-6 text-accent">{plan.price}</div>
                   <ul className="space-y-3 mb-8 flex-1">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
                         <svg className="w-5 h-5 shrink-0 mt-0.5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
-                        <span className={`text-sm ${plan.popular ? 'text-white/80' : 'text-black-light'}`}>{feature}</span>
+                        <span className={`text-sm ${plan.popular ? 'text-black-light group-hover/card:text-white/80' : 'text-black-light'}`}>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Button href="/contact" variant={plan.popular ? 'primary' : 'outline'} className="w-full">
+                  <Button href="/contact" variant={plan.popular ? 'outline' : 'outline'} className={`w-full ${plan.popular ? 'group-hover/card:bg-accent group-hover/card:text-white group-hover/card:border-accent' : ''}`}>
                     문의하기
                   </Button>
                 </div>

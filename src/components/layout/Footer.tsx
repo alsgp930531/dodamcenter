@@ -53,12 +53,6 @@ export default function Footer() {
               전문 상담사가 당신의 이야기에<br />
               귀 기울이겠습니다.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-6 py-3 bg-accent text-white text-sm font-medium rounded-full hover:bg-accent-hover transition-colors"
-            >
-              상담 신청하기
-            </Link>
           </div>
         </div>
 
