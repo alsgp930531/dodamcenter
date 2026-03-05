@@ -33,7 +33,7 @@ const services = [
     category: '상담',
     description: '함께 성장하는 그룹 프로그램',
     image: '/images/photos/seminar-8.jpg',
-    imagePosition: '75% center',
+    imagePosition: '85% center',
     href: '/counseling/group',
   },
   {

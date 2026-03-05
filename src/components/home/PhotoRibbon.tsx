@@ -351,7 +351,7 @@ export default function PhotoRibbon() {
         <div style={{ perspective: '1200px' }} className="relative z-0">
           <motion.div
             className="relative w-[200px] h-[270px] sm:w-[240px] sm:h-[320px] md:w-[280px] md:h-[380px] preserve-3d"
-            style={{ rotateY: rotY, rotateX: rotX, rotateZ: rotZ }}
+            style={{ rotateY: rotY, rotateX: rotX, rotateZ: rotZ, willChange: 'transform' }}
           >
             {photos.map((photo, i) => (
               <div
