@@ -33,7 +33,7 @@ export default function HeroSection() {
     return () => window.removeEventListener('resize', update);
   }, []);
 
-  // Auto animation sequence (all phases, no scroll needed)
+  // Auto animation sequence
   useEffect(() => {
     const timers = [
       setTimeout(() => setPhase(1), LINES_DONE),
@@ -51,6 +51,13 @@ export default function HeroSection() {
   const frameW = Math.min(400, vw - 48);
   const frameH = Math.round(frameW * 0.52);
 
+  // Clip-path inset values (photo is always full-screen, frame is the mask)
+  const topInset = phase >= 5 ? 0 : (vh - frameH) / 2;
+  const bottomInset = phase >= 5 ? 0 : (vh - frameH) / 2;
+  const leftInset = phase >= 4 ? 0 : (vw - frameW) / 2;
+  const rightInset = phase >= 4 ? 0 : (vw - frameW) / 2;
+  const radius = phase >= 4 ? 0 : 12;
+
   // SVG line paths
   const hw = frameW / 2;
   const hh = frameH / 2;
@@ -62,27 +69,21 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative h-dvh overflow-hidden" data-header-theme={phase >= 5 ? 'dark' : undefined}>
-      {/* Beige background */}
-      <div className="absolute inset-0 bg-beige-50" />
-
-      {/* Photo in expanding frame */}
+    <section className="relative h-dvh overflow-hidden bg-beige-50" data-header-theme={phase >= 5 ? 'dark' : undefined}>
+      {/* Full-screen photo (always full size, masked by clip-path) */}
       <motion.div
-        className="absolute overflow-hidden z-[1]"
-        style={{ left: '50%', top: '50%', x: '-50%', y: '-50%' }}
+        className="absolute inset-0 z-[1]"
         animate={{
-          width: phase >= 4 ? vw : frameW,
-          height: phase >= 5 ? vh : frameH,
-          borderRadius: phase >= 4 ? 0 : 12,
+          clipPath: `inset(${topInset}px ${rightInset}px ${bottomInset}px ${leftInset}px round ${radius}px)`,
           opacity: phase >= 3 ? 1 : 0,
         }}
         transition={{
-          duration: phase === 5 ? 1.0 : 1.2,
-          ease: [0.32, 0.72, 0, 1],
+          clipPath: { duration: 1.2, ease: [0.32, 0.72, 0, 1] },
+          opacity: { duration: 0.6 },
         }}
       >
         <div
-          className="w-full h-full bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/images/photos/seminar-6.jpg')` }}
         />
       </motion.div>
@@ -95,7 +96,7 @@ export default function HeroSection() {
         transition={{ duration: 1.2, ease: 'easeOut' }}
       />
 
-      {/* SVG Frame lines */}
+      {/* SVG Frame lines (only visible before photo) */}
       <motion.div
         className="absolute inset-0 z-[3] flex items-center justify-center pointer-events-none"
         animate={{ opacity: phase >= 3 ? 0 : 1 }}
@@ -110,7 +111,7 @@ export default function HeroSection() {
             <motion.path
               key={i}
               d={line.d}
-              stroke="rgba(139,115,85,0.35)"
+              stroke="rgba(139,115,85,0.7)"
               strokeWidth={1}
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
@@ -128,6 +129,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-[4] flex items-center justify-center pointer-events-none">
         <motion.div
           className="flex flex-col items-center gap-2"
+          initial={{ opacity: 0 }}
           animate={{ opacity: phase === 2 ? 1 : 0 }}
           transition={{ duration: phase === 2 ? 0.8 : 0.4 }}
         >
@@ -164,7 +166,7 @@ export default function HeroSection() {
         </p>
       </motion.div>
 
-      {/* Scroll indicator (after everything is done) */}
+      {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-[6]"
         initial={{ opacity: 0 }}
