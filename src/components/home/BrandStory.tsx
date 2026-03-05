@@ -114,7 +114,7 @@ export default function BrandStory() {
       {/* Section 2: Split image + text */}
       <div ref={section2Ref} className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
         {/* Left - Image with curtain reveal */}
-        <div className="relative h-[60vh] lg:h-auto overflow-hidden">
+        <div className="relative h-[40vh] lg:h-auto overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
