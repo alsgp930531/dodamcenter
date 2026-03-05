@@ -17,7 +17,7 @@ const programs = [
     title: '퍼스널 브랜딩 마스터클래스',
     category: '브랜딩',
     image: '/images/photos/seminar-2.jpg',
-    imagePosition: '75% center',
+    imagePosition: '90% center',
     description: '나만의 강점을 찾고 브랜드를 만드는 마스터클래스',
     details: '월 2회 · 6주 과정',
     href: '/programs',
