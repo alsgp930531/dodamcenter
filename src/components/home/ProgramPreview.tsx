@@ -34,6 +34,7 @@ const programs = [
     title: '마음 챙김 워크숍',
     category: '웰니스',
     image: '/images/photos/seminar-10.jpg',
+    imagePosition: '25% center',
     description: '명상과 마음챙김을 통한 스트레스 관리 프로그램',
     details: '매주 수요일 · 상시 운영',
     href: '/programs',
