@@ -63,7 +63,6 @@ export default function PrivacyPage() {
           <div>
             <h2 className="text-xl font-semibold text-black mb-3">6. 개인정보보호책임자</h2>
             <ul className="list-none space-y-1">
-              <li>성명: {SITE_CONFIG.representative}</li>
               <li>연락처: {SITE_CONFIG.phone}</li>
               <li>이메일: {SITE_CONFIG.email}</li>
             </ul>
@@ -72,7 +71,7 @@ export default function PrivacyPage() {
           <div>
             <h2 className="text-xl font-semibold text-black mb-3">7. 개인정보처리방침 변경</h2>
             <p>
-              이 개인정보처리방침은 2025년 1월 1일부터 적용되며,
+              이 개인정보처리방침은 2023년 1월 1일부터 적용되며,
               법령 및 방침에 따른 변경 내용의 추가, 삭제 및 정정이 있는 경우에는
               변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.
             </p>

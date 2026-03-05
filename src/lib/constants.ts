@@ -2,11 +2,9 @@ export const SITE_CONFIG = {
   name: '도담상담센터',
   slogan: '도담, 성장의 기반을 세우는 곳',
   description: '20~30대 청년을 위한 온라인 심리상담 센터. 개인상담, 커플상담, 가족상담, 그룹상담 및 자기성장 프로그램을 제공합니다.',
-  phone: '010-1234-5678',
-  email: 'hello@dodamcenter.kr',
+  phone: '010-7669-1037',
+  email: 'tnghks16@gmail.com',
   hours: '09:00 ~ 21:00',
-  businessNumber: '123-45-67890',
-  representative: '홍길동',
   url: 'https://dodamcenter.kr',
 } as const;
 
@@ -46,5 +44,5 @@ export const TRUST_INDICATORS = [
   { label: '누적 상담', value: 5000, suffix: '건+', icon: 'chat' },
   { label: '상담 만족도', value: 4.9, suffix: '/5.0', icon: 'star' },
   { label: '전문 상담사', value: 30, suffix: '명', icon: 'people' },
-  { label: '운영 기간', value: 5, suffix: '년+', icon: 'calendar' },
+  { label: '운영 기간', value: 7, suffix: '년+', icon: 'calendar' },
 ] as const;

@@ -5,14 +5,14 @@ import { useRef, useEffect } from 'react';
 import Link from 'next/link';
 
 const photos = [
-  'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80',
-  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80',
-  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
-  'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80',
-  'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80',
-  'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80',
-  'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80',
-  'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80',
+  '/images/photos/counseling-1.jpg',
+  '/images/photos/counseling-2.jpg',
+  '/images/photos/counseling-3.jpg',
+  '/images/photos/counseling-4.jpg',
+  '/images/photos/counseling-5.jpg',
+  '/images/photos/counseling-6.jpg',
+  '/images/photos/counseling-7.jpg',
+  '/images/photos/seminar-5.jpg',
 ];
 
 const COUNT = photos.length;

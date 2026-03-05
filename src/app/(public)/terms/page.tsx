@@ -70,7 +70,7 @@ export default function TermsPage() {
           </div>
 
           <p className="text-sm text-beige-300 pt-4 border-t border-beige-200">
-            시행일: 2025년 1월 1일
+            시행일: 2023년 1월 1일
           </p>
         </div>
       </div>

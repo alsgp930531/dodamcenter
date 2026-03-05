@@ -51,9 +51,9 @@ export default function RecommendedPackage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (
             <AnimatedSection key={pkg.title} delay={index * 0.15}>
-              <div className={`relative rounded-2xl p-8 h-full flex flex-col ${
+              <div className={`relative rounded-2xl p-8 h-full flex flex-col transition-all duration-300 group ${
                 pkg.highlight
-                  ? 'bg-dark text-white ring-2 ring-accent'
+                  ? 'bg-white border-2 border-accent hover:bg-dark hover:text-white'
                   : 'bg-white border border-beige-200'
               }`}>
                 {pkg.badge && (
@@ -62,10 +62,10 @@ export default function RecommendedPackage() {
                   </span>
                 )}
 
-                <h3 className={`text-xl font-bold mb-2 ${pkg.highlight ? 'text-white' : 'text-black'}`}>
+                <h3 className={`text-xl font-bold mb-2 ${pkg.highlight ? 'text-black group-hover:text-white' : 'text-black'}`}>
                   {pkg.title}
                 </h3>
-                <p className={`text-sm mb-6 ${pkg.highlight ? 'text-white/70' : 'text-black-light'}`}>
+                <p className={`text-sm mb-6 ${pkg.highlight ? 'text-black-light group-hover:text-white/70' : 'text-black-light'}`}>
                   {pkg.description}
                 </p>
 
@@ -73,18 +73,18 @@ export default function RecommendedPackage() {
                   {pkg.isGovSupported ? (
                     <div>
                       <span className="text-3xl font-bold text-accent">무료</span>
-                      <span className={`ml-2 text-sm line-through ${pkg.highlight ? 'text-white/50' : 'text-black-light'}`}>
+                      <span className={`ml-2 text-sm line-through ${pkg.highlight ? 'text-black-light group-hover:text-white/50' : 'text-black-light'}`}>
                         {pkg.originalPrice.toLocaleString()}원
                       </span>
                     </div>
                   ) : (
                     <div>
-                      <span className={`text-3xl font-bold ${pkg.highlight ? 'text-white' : 'text-black'}`}>
+                      <span className={`text-3xl font-bold ${pkg.highlight ? 'text-black group-hover:text-white' : 'text-black'}`}>
                         {pkg.price.toLocaleString()}
                       </span>
-                      <span className={`text-sm ml-1 ${pkg.highlight ? 'text-white/70' : 'text-black-light'}`}>원</span>
+                      <span className={`text-sm ml-1 ${pkg.highlight ? 'text-black-light group-hover:text-white/70' : 'text-black-light'}`}>원</span>
                       {pkg.originalPrice > pkg.price && (
-                        <span className={`ml-2 text-sm line-through ${pkg.highlight ? 'text-white/50' : 'text-black-light'}`}>
+                        <span className={`ml-2 text-sm line-through ${pkg.highlight ? 'text-black-light group-hover:text-white/50' : 'text-black-light'}`}>
                           {pkg.originalPrice.toLocaleString()}원
                         </span>
                       )}
@@ -98,7 +98,7 @@ export default function RecommendedPackage() {
                       <svg className={`w-5 h-5 shrink-0 mt-0.5 ${pkg.highlight ? 'text-accent' : 'text-accent'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className={`text-sm ${pkg.highlight ? 'text-white/80' : 'text-black-light'}`}>{item}</span>
+                      <span className={`text-sm ${pkg.highlight ? 'text-black-light group-hover:text-white/80' : 'text-black-light'}`}>{item}</span>
                     </li>
                   ))}
                 </ul>

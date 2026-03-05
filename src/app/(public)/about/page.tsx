@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 };
 
 const milestones = [
-  { year: '2020', title: '도담상담센터 설립', description: '청년 심리상담 전문 센터로 출발' },
-  { year: '2021', title: '온라인 상담 시스템 도입', description: '비대면 시대에 맞춘 온라인 상담 플랫폼 구축' },
-  { year: '2022', title: '성장 프로그램 런칭', description: '자기개발, 퍼스널 브랜딩 프로그램 시작' },
-  { year: '2023', title: '누적 상담 3,000건 돌파', description: '청년 상담 분야 신뢰도 1위 달성' },
-  { year: '2024', title: '기업 EAP 서비스 시작', description: '직장인 심리 건강 지원 서비스 확대' },
-  { year: '2025', title: '정부지원 사업 파트너 선정', description: '청년 심리 지원 정부사업 공식 파트너' },
+  { year: '2018', title: '도담상담센터 설립', description: '청년 심리상담 전문 센터로 출발' },
+  { year: '2019', title: '온라인 상담 시스템 도입', description: '비대면 시대에 맞춘 온라인 상담 플랫폼 구축' },
+  { year: '2020', title: '성장 프로그램 런칭', description: '자기개발, 퍼스널 브랜딩 프로그램 시작' },
+  { year: '2021', title: '누적 상담 3,000건 돌파', description: '청년 상담 분야 신뢰도 1위 달성' },
+  { year: '2022', title: '기업 EAP 서비스 시작', description: '직장인 심리 건강 지원 서비스 확대' },
+  { year: '2023', title: '정부지원 사업 파트너 선정', description: '청년 심리 지원 정부사업 공식 파트너' },
 ];
 
 const team = [
@@ -53,7 +53,7 @@ export default function AboutPage() {
               <div
                 className="aspect-[4/3] rounded-3xl bg-cover bg-center"
                 style={{
-                  backgroundImage: `url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80')`,
+                  backgroundImage: `url('/images/photos/counseling-2.jpg')`,
                 }}
               />
             </AnimatedSection>

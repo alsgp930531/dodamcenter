@@ -56,7 +56,7 @@ export default function TrustIndicators() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920&q=80')`,
+            backgroundImage: `url('/images/photos/seminar-1.jpg')`,
           }}
         />
         <div className="absolute inset-0 bg-dark/65" />

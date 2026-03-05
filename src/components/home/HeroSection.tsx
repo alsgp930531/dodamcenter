@@ -22,7 +22,7 @@ export default function HeroSection() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=1920&q=80')`,
+            backgroundImage: `url('/images/photos/seminar-4.jpg')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/50 via-dark/25 to-dark/65" />

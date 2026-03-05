@@ -21,7 +21,7 @@ const programs = [
     description: '자기 탐색을 통해 나만의 강점과 가치를 발견하고, 진정한 나를 이해하는 여정입니다.',
     price: '120,000원',
     duration: '4주 과정',
-    image: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&q=80',
+    image: '/images/photos/seminar-9.jpg',
   },
   {
     title: '퍼스널 브랜딩 마스터클래스',
@@ -29,7 +29,7 @@ const programs = [
     description: '나만의 브랜드를 구축하고 온·오프라인에서 영향력을 키우는 전략을 배웁니다.',
     price: '180,000원',
     duration: '6주 과정',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
+    image: '/images/photos/seminar-2.jpg',
   },
   {
     title: '감정 다루기 워크숍',
@@ -37,7 +37,7 @@ const programs = [
     description: '감정을 인식하고 건강하게 표현하는 방법을 배워 정서적 안정감을 높입니다.',
     price: '90,000원',
     duration: '3주 과정',
-    image: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80',
+    image: '/images/photos/counseling-7.jpg',
   },
   {
     title: '커리어 리디자인',
@@ -45,7 +45,7 @@ const programs = [
     description: '현재의 커리어를 점검하고 원하는 방향으로 재설계하는 실전 커리어 프로그램입니다.',
     price: '150,000원',
     duration: '5주 과정',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80',
+    image: '/images/photos/seminar-3.jpg',
   },
   {
     title: '관계의 기술',
@@ -53,7 +53,7 @@ const programs = [
     description: '건강한 대인관계를 위한 소통 방법과 경계 설정 기술을 체계적으로 학습합니다.',
     price: '100,000원',
     duration: '4주 과정',
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80',
+    image: '/images/photos/seminar-7.jpg',
   },
   {
     title: '마인드풀니스 명상',
@@ -61,7 +61,7 @@ const programs = [
     description: '매일 실천할 수 있는 마음챙김 명상을 통해 내면의 평화와 집중력을 기릅니다.',
     price: '80,000원',
     duration: '8주 과정',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80',
+    image: '/images/photos/counseling-6.jpg',
   },
 ];
 

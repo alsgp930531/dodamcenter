@@ -8,7 +8,7 @@ const programs = [
   {
     title: '나를 알아가는 여행',
     category: '자기이해',
-    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80',
+    image: '/images/photos/seminar-9.jpg',
     description: '심리검사와 상담을 통해 진정한 나를 발견하는 8주 프로그램',
     details: '매주 토요일 · 8주 과정',
     href: '/programs',
@@ -16,7 +16,7 @@ const programs = [
   {
     title: '퍼스널 브랜딩 마스터클래스',
     category: '브랜딩',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80',
+    image: '/images/photos/seminar-2.jpg',
     description: '나만의 강점을 찾고 브랜드를 만드는 마스터클래스',
     details: '월 2회 · 6주 과정',
     href: '/programs',
@@ -24,7 +24,7 @@ const programs = [
   {
     title: '커리어 리디자인',
     category: '커리어',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80',
+    image: '/images/photos/seminar-3.jpg',
     description: '전문가와 함께 커리어 방향을 재설계하는 프로그램',
     details: '주중 저녁 · 4주 과정',
     href: '/programs',
@@ -32,7 +32,7 @@ const programs = [
   {
     title: '마음 챙김 워크숍',
     category: '웰니스',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80',
+    image: '/images/photos/counseling-6.jpg',
     description: '명상과 마음챙김을 통한 스트레스 관리 프로그램',
     details: '매주 수요일 · 상시 운영',
     href: '/programs',
@@ -40,7 +40,7 @@ const programs = [
   {
     title: '관계의 기술',
     category: '관계',
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80',
+    image: '/images/photos/seminar-7.jpg',
     description: '건강한 대인관계를 위한 소통 기술 워크숍',
     details: '격주 토요일 · 6주 과정',
     href: '/programs',

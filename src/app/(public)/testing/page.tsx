@@ -100,9 +100,9 @@ export default function TestingPage() {
                 심리검사
               </h1>
               <p className="mt-6 text-lg md:text-xl text-black-light leading-relaxed">
-                대면 방문을 통한 전문 심리검사 서비스를 제공합니다.
-                과학적으로 검증된 검사 도구를 활용하여
-                자기 이해와 성장의 출발점을 마련합니다.
+                검사에 기반한 정확한 진단은 더 깊은 상담의 출발점이 됩니다.
+                표준화된 심리검사와 전문 분석을 통해 현재의 어려움을 객관적으로 이해하고,
+                맞춤형 상담으로 연결합니다.
               </p>
             </div>
           </AnimatedSection>

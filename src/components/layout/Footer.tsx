@@ -65,16 +65,11 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/15">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-beige-300">
-            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-              <span>사업자등록번호: {SITE_CONFIG.businessNumber}</span>
-              <span className="hidden md:inline">|</span>
-              <span>대표: {SITE_CONFIG.representative}</span>
-            </div>
             <div className="flex items-center gap-4">
               <Link href="/privacy" className="hover:text-white transition-colors">개인정보처리방침</Link>
               <Link href="/terms" className="hover:text-white transition-colors">이용약관</Link>
             </div>
-            <span>&copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.</span>
+            <span>&copy; 2023 {SITE_CONFIG.name}. All rights reserved.</span>
           </div>
         </div>
       </div>

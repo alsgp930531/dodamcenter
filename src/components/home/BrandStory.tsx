@@ -50,7 +50,7 @@ export default function BrandStory() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80')`,
+                backgroundImage: `url('/images/photos/seminar-2.jpg')`,
               }}
             />
             <div className="absolute inset-0 bg-dark/40" />
@@ -114,7 +114,7 @@ export default function BrandStory() {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=1200&q=80')`,
+                backgroundImage: `url('/images/photos/counseling-5.jpg')`,
               }}
             />
           </motion.div>

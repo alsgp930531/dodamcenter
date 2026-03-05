@@ -19,7 +19,7 @@ export default function MarqueeSection() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80')`,
+              backgroundImage: `url('/images/photos/seminar-3.jpg')`,
             }}
           />
         </motion.div>
