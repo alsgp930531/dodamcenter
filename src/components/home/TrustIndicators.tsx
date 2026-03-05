@@ -50,7 +50,7 @@ export default function TrustIndicators() {
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
 
   return (
-    <section ref={ref} className="relative h-[70vh] md:h-screen flex items-center overflow-hidden bg-dark" data-header-theme="dark">
+    <section ref={ref} className="relative h-auto py-20 md:h-screen md:py-0 flex items-center overflow-hidden bg-dark" data-header-theme="dark">
       {/* Parallax Background */}
       <motion.div style={{ y: bgY }} className="absolute inset-0">
         <div

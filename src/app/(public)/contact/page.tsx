@@ -18,7 +18,7 @@ export default function ContactPage() {
           <AnimatedSection>
             <div className="max-w-3xl">
               <span className="text-sm tracking-[0.2em] uppercase font-medium text-accent">Contact</span>
-              <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
+              <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
                 상담 문의
               </h1>
               <p className="mt-6 text-lg md:text-xl text-black-light leading-relaxed">

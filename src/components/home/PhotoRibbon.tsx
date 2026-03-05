@@ -353,8 +353,8 @@ export default function PhotoRibbon() {
   useRibbonCanvas(canvasRef, stickyRef, rotY, rotX, rotZ, isVisible);
 
   return (
-    <section ref={containerRef} className="relative h-[350vh] bg-white">
-      <div ref={stickyRef} className="sticky top-0 h-screen flex items-center justify-center bg-white pt-24 pb-16 md:pt-40 md:pb-28" style={{ clipPath: 'inset(0)' }}>
+    <section ref={containerRef} className="relative h-[250vh] md:h-[350vh] bg-white">
+      <div ref={stickyRef} className="sticky top-0 h-screen flex items-center justify-center bg-white pt-16 pb-12 sm:pt-20 sm:pb-16 md:pt-40 md:pb-28" style={{ clipPath: 'inset(0)' }}>
         {/* 3D Carousel (photos only) */}
         <div style={{ perspective: '1200px' }} className="relative z-0">
           <motion.div
@@ -390,10 +390,10 @@ export default function PhotoRibbon() {
         />
 
         {/* View More */}
-        <div className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-10">
+        <div className="absolute bottom-12 sm:bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-10">
           <Link
             href="/about"
-            className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-dark text-white flex items-center justify-center text-sm font-medium hover:scale-105 transition-transform duration-300"
+            className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-dark text-white flex items-center justify-center text-sm font-medium hover:scale-105 transition-transform duration-300"
           >
             View More
           </Link>

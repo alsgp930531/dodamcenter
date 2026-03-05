@@ -78,7 +78,7 @@ export default function FamilyCounselingPage() {
               <span className="text-sm tracking-[0.2em] uppercase font-medium text-accent">
                 Family Counseling
               </span>
-              <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
+              <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
                 가족상담
               </h1>
               <p className="mt-6 text-lg md:text-xl text-black-light leading-relaxed">
@@ -205,8 +205,8 @@ export default function FamilyCounselingPage() {
                 상담 비용 안내
               </h2>
               <div className="group/price mt-10 bg-white rounded-3xl p-10 md:p-12 transition-all duration-300 hover:bg-dark">
-                <div className="text-5xl md:text-6xl font-bold text-accent">
-                  150,000<span className="text-2xl md:text-3xl font-medium">원</span>
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent">
+                  150,000<span className="text-xl sm:text-2xl md:text-3xl font-medium">원</span>
                 </div>
                 <div className="mt-3 text-lg text-black-light group-hover/price:text-white/70 transition-colors duration-300">1회 / 90분</div>
                 <div className="mt-6 w-full h-px bg-beige-200 group-hover/price:bg-white/20 transition-colors duration-300" />

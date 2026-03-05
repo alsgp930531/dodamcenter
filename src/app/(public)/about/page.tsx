@@ -32,7 +32,7 @@ export default function AboutPage() {
           <AnimatedSection>
             <div className="max-w-3xl">
               <span className="text-sm tracking-[0.2em] uppercase font-medium text-accent">About Us</span>
-              <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
+              <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
                 도담상담센터를<br />소개합니다
               </h1>
               <p className="mt-6 text-lg md:text-xl text-black-light leading-relaxed">

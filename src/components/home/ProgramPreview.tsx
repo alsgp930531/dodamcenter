@@ -82,7 +82,7 @@ export default function ProgramPreview() {
           {Array.from({ length: 12 }).map((_, i) => (
             <span
               key={i}
-              className="text-[80px] md:text-[120px] font-bold mx-6 text-black select-none"
+              className="text-[40px] sm:text-[60px] md:text-[100px] lg:text-[120px] font-bold mx-6 text-black select-none"
             >
               YOUTH GROWTH PROJECT
             </span>

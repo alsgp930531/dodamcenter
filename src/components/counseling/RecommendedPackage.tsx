@@ -51,7 +51,7 @@ export default function RecommendedPackage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (
             <AnimatedSection key={pkg.title} delay={index * 0.15}>
-              <div className={`group relative rounded-2xl p-8 h-full flex flex-col transition-all duration-300 bg-white hover:bg-dark ${
+              <div className={`group relative rounded-2xl p-5 sm:p-6 md:p-8 h-full flex flex-col transition-all duration-300 bg-white hover:bg-dark ${
                 pkg.highlight ? 'border-2 border-accent' : 'border border-beige-200'
               }`}>
                 {pkg.badge && (
