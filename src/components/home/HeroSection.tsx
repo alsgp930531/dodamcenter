@@ -69,10 +69,14 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative h-dvh overflow-hidden bg-beige-50" data-header-theme={phase >= 5 ? 'dark' : undefined}>
+    <section className="relative h-dvh overflow-hidden bg-dark" data-header-theme="dark">
       {/* Full-screen photo (always full size, masked by clip-path) */}
       <motion.div
         className="absolute inset-0 z-[1]"
+        initial={{
+          clipPath: `inset(50% 50% 50% 50% round 12px)`,
+          opacity: 0,
+        }}
         animate={{
           clipPath: `inset(${topInset}px ${rightInset}px ${bottomInset}px ${leftInset}px round ${radius}px)`,
           opacity: phase >= 3 ? 1 : 0,
@@ -92,7 +96,7 @@ export default function HeroSection() {
       <motion.div
         className="absolute inset-0 z-[2] bg-gradient-to-b from-dark/40 via-dark/55 to-dark/70"
         initial={{ opacity: 0 }}
-        animate={{ opacity: phase >= 6 ? 0.6 : 0 }}
+        animate={{ opacity: phase >= 6 ? 1 : 0 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
       />
 
@@ -111,7 +115,7 @@ export default function HeroSection() {
             <motion.path
               key={i}
               d={line.d}
-              stroke="rgba(139,115,85,0.7)"
+              stroke="rgba(245,240,235,0.5)"
               strokeWidth={1}
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
@@ -133,10 +137,10 @@ export default function HeroSection() {
           animate={{ opacity: phase === 2 ? 1 : 0 }}
           transition={{ duration: phase === 2 ? 0.8 : 0.4 }}
         >
-          <span className="font-serif text-[11vw] sm:text-[8vw] md:text-[6vw] lg:text-[5vw] font-bold text-black tracking-[0.05em] leading-none">
+          <span className="font-serif text-[11vw] sm:text-[8vw] md:text-[6vw] lg:text-[5vw] font-bold text-beige-100 tracking-[0.05em] leading-none">
             DODAM
           </span>
-          <span className="text-[3vw] sm:text-[2.2vw] md:text-[1.4vw] lg:text-[1vw] tracking-[0.35em] text-black/50 uppercase">
+          <span className="text-[3vw] sm:text-[2.2vw] md:text-[1.4vw] lg:text-[1vw] tracking-[0.35em] text-beige-200 uppercase">
             Counseling Center
           </span>
         </motion.div>
@@ -144,7 +148,7 @@ export default function HeroSection() {
 
       {/* Subtitle (auto, phase 7) */}
       <motion.div
-        className="absolute inset-0 z-[5] flex flex-col items-center justify-center px-6 pointer-events-none"
+        className="absolute inset-0 z-[5] flex flex-col justify-center px-6 md:px-16 lg:px-20 pointer-events-none max-w-7xl mx-auto"
         initial={{ opacity: 0, y: 40 }}
         animate={phase >= 7 ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
         transition={{ duration: 1.0, ease: 'easeOut' }}
@@ -153,13 +157,13 @@ export default function HeroSection() {
           Dodam Counseling Center
         </span>
 
-        <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold text-white text-center leading-[1.1] tracking-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight">
           도담, 성장의
           <br />
           기반을 세우는 곳
         </h2>
 
-        <p className="mt-8 text-base md:text-lg text-white/70 text-center max-w-lg leading-relaxed">
+        <p className="mt-8 text-base md:text-lg text-white/70 max-w-lg leading-relaxed">
           내면의 안정과 삶의 방향을
           <br className="hidden sm:inline" />
           함께 세우는 상담센터

@@ -5,13 +5,13 @@ import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const photos = [
-  { src: '/images/photos/counseling-1.jpg', position: 'center' },
+  { src: '/images/photos/counseling-1.jpg', position: 'center 20%' },
   { src: '/images/photos/counseling-2.jpg', position: 'center' },
-  { src: '/images/photos/counseling-3.jpg', position: '35% center' },
-  { src: '/images/photos/counseling-4.jpg', position: '60% center' },
+  { src: '/images/photos/counseling-3.jpg', position: '35% 30%' },
+  { src: '/images/photos/counseling-4.jpg', position: 'center 30%' },
   { src: '/images/photos/counseling-5.jpg', position: 'center' },
-  { src: '/images/photos/counseling-6.jpg', position: '60% center' },
-  { src: '/images/photos/counseling-7.jpg', position: '45% 30%' },
+  { src: '/images/photos/counseling-6.jpg', position: '55% 25%' },
+  { src: '/images/photos/counseling-7.jpg', position: 'center 20%' },
   { src: '/images/photos/seminar-5.jpg', position: 'center' },
 ];
 
@@ -30,8 +30,13 @@ const RIBBON_COLOR = { r: 245, g: 242, b: 237 };
 const SHADOW_COLOR = { r: 0, g: 0, b: 0 };
 const TEXT_LABEL = 'DODAM COUNSELING CENTER · ';
 const CHAR_ANGLE_VAL = 0.022; // radians per character (letter spacing)
-const TEXT_COUNT = Math.ceil((Math.PI * 2) / (CHAR_ANGLE_VAL * TEXT_LABEL.length)); // auto-fill, no gaps
+const TEXT_COUNT = Math.min(
+  Math.ceil((Math.PI * 2) / (CHAR_ANGLE_VAL * TEXT_LABEL.length)),
+  6, // cap to reduce draw calls
+);
 const TEXT_SPEED = 0.00015; // radians per ms for text animation
+const IDLE_FPS = 24;
+const IDLE_INTERVAL = 1000 / IDLE_FPS;
 
 function drawRibbon(
   ctx: CanvasRenderingContext2D,
@@ -213,14 +218,13 @@ function drawRibbon(
       if (!nextPos) continue;
 
       const angle = Math.atan2(nextPos.sy - charPos.sy, nextPos.sx - charPos.sx);
-      const fontSize = Math.max(10, 14 * charPos.s);
+      const fontSize = Math.round(Math.max(10, 14 * charPos.s));
 
       ctx.save();
       ctx.translate(charPos.sx, charPos.sy);
       ctx.rotate(angle);
-      ctx.font = `800 ${fontSize}px 'Pretendard', sans-serif`;
-      ctx.globalAlpha = opacity * 0.9;
-      ctx.fillStyle = `rgba(20,20,20,${opacity * 0.85})`;
+      ctx.font = `800 ${fontSize}px Pretendard,sans-serif`;
+      ctx.globalAlpha = opacity * 0.85;
       ctx.fillText(TEXT_LABEL[ci], 0, 0);
       ctx.restore();
     }
@@ -260,14 +264,36 @@ function useRibbonCanvas(
 
     let frameId: number;
     const startTime = performance.now();
+    let lastDrawTime = 0;
+    let lastRotY = 0;
+    let cachedW = 0;
+    let cachedH = 0;
+    const updateCachedSize = () => {
+      const rect = sticky.getBoundingClientRect();
+      cachedW = rect.width;
+      cachedH = rect.height;
+    };
+    updateCachedSize();
+    window.addEventListener('resize', updateCachedSize);
+
     const draw = () => {
       if (!isVisible) {
         frameId = requestAnimationFrame(draw);
         return;
       }
-      const rect = sticky.getBoundingClientRect();
-      const elapsed = performance.now() - startTime;
-      drawRibbon(ctx, rect.width, rect.height, rotY.get(), rotX.get(), rotZ.get(), elapsed);
+      const now = performance.now();
+      const curRotY = rotY.get();
+      const isScrolling = Math.abs(curRotY - lastRotY) > 0.01;
+      lastRotY = curRotY;
+
+      // Full FPS when scrolling, throttled when idle (text animation only)
+      if (!isScrolling && now - lastDrawTime < IDLE_INTERVAL) {
+        frameId = requestAnimationFrame(draw);
+        return;
+      }
+      lastDrawTime = now;
+      const elapsed = now - startTime;
+      drawRibbon(ctx, cachedW, cachedH, curRotY, rotX.get(), rotZ.get(), elapsed);
       frameId = requestAnimationFrame(draw);
     };
     draw();
@@ -275,6 +301,7 @@ function useRibbonCanvas(
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener('resize', resize);
+      window.removeEventListener('resize', updateCachedSize);
     };
   }, [canvasRef, stickyRef, rotY, rotX, rotZ, isVisible]);
 }

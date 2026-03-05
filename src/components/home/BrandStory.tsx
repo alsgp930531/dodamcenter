@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function BrandStory() {
@@ -22,17 +22,25 @@ export default function BrandStory() {
     if (v > 0.35 && !showText) setShowText(true);
   });
 
-  // Section 2 scroll tracking
+  // Section 2: trigger once when visible
   const section2Ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: s2Progress } = useScroll({
-    target: section2Ref,
-    offset: ['start end', 'end start'],
-  });
+  const [section2Visible, setSection2Visible] = useState(false);
 
-  // Curtain reveal - beige overlay slides away, revealing image
-  const curtainX = useTransform(s2Progress, [0.05, 0.4], ['0%', '105%']);
-  const textX = useTransform(s2Progress, [0.15, 0.45], [60, 0]);
-  const textOpacity = useTransform(s2Progress, [0.15, 0.4], [0, 1]);
+  useEffect(() => {
+    const el = section2Ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSection2Visible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="relative bg-white">
@@ -110,19 +118,25 @@ export default function BrandStory() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('/images/photos/empathy-hands.jpg')`,
+              backgroundImage: `url('/images/photos/counseling-8.jpg')`,
             }}
           />
           {/* Beige curtain that slides away to the right */}
           <motion.div
-            style={{ x: curtainX }}
+            initial={{ x: '0%' }}
+            animate={{ x: section2Visible ? '105%' : '0%' }}
+            transition={{ duration: 1.0, ease: [0.32, 0.72, 0, 1] }}
             className="absolute inset-0 bg-beige-50 z-10"
           />
         </div>
 
         {/* Right - Text slides in from right */}
         <div className="flex items-center bg-beige-50 px-6 md:px-16 lg:px-20 py-16 md:py-20 lg:py-0">
-          <motion.div style={{ x: textX, opacity: textOpacity }}>
+          <motion.div
+            initial={{ x: 60, opacity: 0 }}
+            animate={section2Visible ? { x: 0, opacity: 1 } : { x: 60, opacity: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+          >
             <span className="inline-block text-[11px] tracking-[0.4em] text-accent uppercase">
               Our Value
             </span>

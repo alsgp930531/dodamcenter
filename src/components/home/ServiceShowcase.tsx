@@ -33,20 +33,21 @@ const services = [
     category: '상담',
     description: '함께 성장하는 그룹 프로그램',
     image: '/images/photos/seminar-8.jpg',
+    imagePosition: '75% center',
     href: '/counseling/group',
   },
   {
     title: '심리검사',
     category: '프로그램',
     description: '과학적 심리검사로 나를 이해하기',
-    image: '/images/photos/counseling-7.jpg',
+    image: '/images/photos/counseling-2.jpg',
     href: '/testing',
   },
   {
     title: '성장 프로그램',
     category: '프로그램',
     description: '자기성장과 커리어 발전을 위한 워크숍',
-    image: '/images/photos/seminar-1.jpg',
+    image: '/images/photos/seminar-7.jpg',
     href: '/programs',
   },
 ];
@@ -138,8 +139,11 @@ export default function ServiceShowcase() {
                 className="hidden lg:flex absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] xl:w-[320px] xl:h-[320px] rounded-full overflow-hidden pointer-events-none z-10 items-center justify-center"
               >
                 <div
-                  className="w-full h-full bg-cover bg-center scale-110"
-                  style={{ backgroundImage: `url('${hoveredService.image}')` }}
+                  className="w-full h-full bg-cover scale-110"
+                  style={{
+                    backgroundImage: `url('${hoveredService.image}')`,
+                    backgroundPosition: hoveredService.imagePosition || 'center',
+                  }}
                 />
                 <div className="absolute inset-0 bg-dark/25 rounded-full" />
               </motion.div>
