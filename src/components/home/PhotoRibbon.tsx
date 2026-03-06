@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const photos = [
   { src: '/images/photos/seminar-1.jpg', position: 'center' },
-  { src: '/images/photos/seminar-2.jpg', position: '65% center' },
+  { src: '/images/photos/seminar-2.jpg', position: '85% center' },
   { src: '/images/photos/seminar-3.jpg', position: 'center' },
   { src: '/images/photos/seminar-4.jpg', position: 'center' },
   { src: '/images/photos/seminar-5.jpg', position: '60% center' },
