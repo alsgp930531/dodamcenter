@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Button from '@/components/shared/Button';
 import SuccessModal from '@/components/shared/SuccessModal';
 import PrivacyConsentSection from './PrivacyConsentSection';
+import { counselorsData } from '@/data/counselors';
 
 const unresolvedIssueOptions = [
   '우울',
@@ -209,14 +210,17 @@ export default function GovSupportForm() {
             추천 상담사
             <span className="text-xs text-black-light/60 ml-2">(선택사항)</span>
           </label>
-          <input
-            type="text"
+          <select
             id="gov-counselor"
             value={formData.preferredCounselor}
             onChange={(e) => setFormData({ ...formData, preferredCounselor: e.target.value })}
             className={inputClass}
-            placeholder="추천받은 상담사가 있다면 이름을 적어주세요"
-          />
+          >
+            <option value="">상담사를 선택해주세요 (선택사항)</option>
+            {counselorsData.map((c) => (
+              <option key={c.name} value={c.name}>{c.name} ({c.credentials})</option>
+            ))}
+          </select>
         </div>
 
         {/* 미해결 문제 유형 (multi-checkbox) */}
