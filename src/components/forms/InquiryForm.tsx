@@ -35,7 +35,7 @@ function getSuccessContent(counselingType: string): { title: string; message: st
     case '추천 패키지 (정부지원)':
       return {
         title: '신청이 접수되었습니다',
-        message: '정부지원 프로그램은 내부 검토 후 자격 요건 및 진행 절차를 안내드리겠습니다.',
+        message: '정부지원 프로그램은 내부 검토 후\n자격 요건 및 진행 절차를 안내드리겠습니다.',
       };
     case '기업심리(EAP)':
       return {

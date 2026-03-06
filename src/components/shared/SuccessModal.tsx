@@ -89,7 +89,7 @@ export default function SuccessModal({ isOpen, onClose, title, message }: Succes
 
             {/* Title */}
             <motion.h3
-              className="text-xl sm:text-2xl font-semibold text-black mb-3"
+              className="text-xl sm:text-2xl font-semibold text-black mb-3 break-keep"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.4 }}
@@ -99,7 +99,7 @@ export default function SuccessModal({ isOpen, onClose, title, message }: Succes
 
             {/* Message */}
             <motion.p
-              className="text-sm sm:text-base text-black-light leading-relaxed mb-2"
+              className="text-sm sm:text-base text-black-light leading-relaxed mb-2 whitespace-pre-line break-keep"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45, duration: 0.4 }}
