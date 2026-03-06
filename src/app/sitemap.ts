@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://dodamcenter.kr';
+  const baseUrl = 'https://dodamcenter.com';
 
   const routes = [
     '',

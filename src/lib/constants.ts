@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   phone: '010-7669-1037',
   email: 'tnghks16@gmail.com',
   hours: '09:00 ~ 21:00',
-  url: 'https://dodamcenter.kr',
+  url: 'https://dodamcenter.com',
 } as const;
 
 export type NavItem = {
