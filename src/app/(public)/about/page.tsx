@@ -8,12 +8,15 @@ export const metadata: Metadata = {
 };
 
 const milestones = [
-  { year: '2018', title: '도담상담센터 설립', description: '청년 심리상담 전문 센터로 출발' },
-  { year: '2019', title: '온라인 상담 시스템 도입', description: '비대면 시대에 맞춘 온라인 상담 플랫폼 구축' },
-  { year: '2020', title: '성장 프로그램 런칭', description: '자기개발, 퍼스널 브랜딩 프로그램 시작' },
-  { year: '2021', title: '누적 상담 3,000건 돌파', description: '청년 상담 분야 신뢰도 1위 달성' },
-  { year: '2022', title: '기업 EAP 서비스 시작', description: '직장인 심리 건강 지원 서비스 확대' },
-  { year: '2023', title: '정부지원 사업 파트너 선정', description: '청년 심리 지원 정부사업 공식 파트너' },
+  { date: '2023.03', title: '도담상담센터 설립', description: '청년 심리상담 전문 센터로 출발' },
+  { date: '2023.06', title: '온라인 상담 시스템 도입', description: '비대면 시대에 맞춘 온라인 상담 플랫폼 구축' },
+  { date: '2023.09', title: '성장 프로그램 런칭', description: '자기개발, 퍼스널 브랜딩 프로그램 시작' },
+  { date: '2024.01', title: '누적 상담 500건 돌파', description: '청년 상담 분야 신뢰 구축' },
+  { date: '2024.05', title: '기업 EAP 서비스 시작', description: '직장인 심리 건강 지원 서비스 확대' },
+  { date: '2024.09', title: '정부지원 사업 파트너 선정', description: '청년 심리 지원 정부사업 공식 파트너' },
+  { date: '2025.02', title: '누적 상담 2,000건 돌파', description: '상담사 30명 이상 규모로 성장' },
+  { date: '2025.08', title: '그룹 상담 프로그램 확대', description: '감정 다루기, 관계의 기술 등 다양한 워크숍 운영' },
+  { date: '2026.01', title: '누적 상담 5,000건 돌파', description: '청년 상담 전문 센터로 자리매김' },
 ];
 
 const team = [
@@ -89,18 +92,18 @@ export default function AboutPage() {
 
           <div className="max-w-3xl mx-auto">
             {milestones.map((item, index) => (
-              <AnimatedSection key={item.year} delay={index * 0.1}>
+              <AnimatedSection key={item.date} delay={index * 0.1}>
                 <div className="flex gap-6 md:gap-10 mb-10 last:mb-0">
                   <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold shrink-0">
-                      {item.year.slice(2)}
+                    <div className="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold shrink-0">
+                      {item.date.slice(2)}
                     </div>
                     {index < milestones.length - 1 && (
                       <div className="w-px h-full bg-beige-200 mt-2" />
                     )}
                   </div>
                   <div className="pb-10">
-                    <span className="text-sm text-accent font-medium">{item.year}</span>
+                    <span className="text-sm text-accent font-medium">{item.date}</span>
                     <h3 className="text-lg font-semibold text-black mt-1">{item.title}</h3>
                     <p className="text-black-light mt-1">{item.description}</p>
                   </div>
