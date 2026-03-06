@@ -10,7 +10,7 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { name, phone, email, counselingType, message } = body;
+  const { name, phone, email, birthdate, address, counselingType, message } = body;
 
   if (!name || !phone || !counselingType || !message) {
     return NextResponse.json({ error: '필수 항목을 모두 입력해주세요.' }, { status: 400 });
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
   });
 
   // 텔레그램 알림 (실패해도 응답에 영향 없음)
-  await sendTelegramNotification(formatInquiryMessage({ name, phone, email, counselingType, message }));
+  await sendTelegramNotification(formatInquiryMessage({ name, phone, email, birthdate, address, counselingType, message }));
 
   return NextResponse.json(inquiry, { status: 201 });
 }

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import AnimatedSection from '@/components/shared/AnimatedSection';
-import InquiryForm from '@/components/forms/InquiryForm';
+import ContactFormSection from '@/components/forms/ContactFormSection';
 
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -94,11 +94,7 @@ export default function ContactPage() {
             {/* Right - Form */}
             <div className="lg:col-span-2">
               <AnimatedSection direction="right">
-                <div className="bg-beige-50 rounded-2xl p-8 md:p-10">
-                  <h2 className="text-2xl font-semibold text-black mb-2">상담 신청</h2>
-                  <p className="text-black-light mb-8">아래 양식을 작성해주시면 빠르게 연락드리겠습니다.</p>
-                  <InquiryForm />
-                </div>
+                <ContactFormSection />
               </AnimatedSection>
             </div>
           </div>

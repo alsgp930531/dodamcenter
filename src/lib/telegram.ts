@@ -26,6 +26,8 @@ export function formatInquiryMessage(inquiry: {
   name: string;
   phone: string;
   email?: string;
+  birthdate?: string;
+  address?: string;
   counselingType: string;
   message: string;
 }) {
@@ -34,9 +36,39 @@ export function formatInquiryMessage(inquiry: {
     '',
     `<b>이름:</b> ${inquiry.name}`,
     `<b>연락처:</b> ${inquiry.phone}`,
+    inquiry.birthdate ? `<b>생년월일:</b> ${inquiry.birthdate}` : '',
+    inquiry.address ? `<b>주소:</b> ${inquiry.address}` : '',
     inquiry.email ? `<b>이메일:</b> ${inquiry.email}` : '',
     `<b>상담유형:</b> ${inquiry.counselingType}`,
     `<b>내용:</b> ${inquiry.message}`,
+  ]
+    .filter(Boolean)
+    .join('\n');
+}
+
+export function formatGovSupportMessage(data: {
+  name: string;
+  phone: string;
+  birthdate: string;
+  address: string;
+  referral: string;
+  unresolvedIssues: string[];
+  mainConcern: string;
+  counselingExpectation?: string;
+  pastCounselingExperience?: string;
+}) {
+  return [
+    '🏛 <b>정부지원 상담 신청이 접수되었습니다</b>',
+    '',
+    `<b>내담자 성명:</b> ${data.name}`,
+    `<b>연락처:</b> ${data.phone}`,
+    `<b>생년월일:</b> ${data.birthdate}`,
+    `<b>주소:</b> ${data.address}`,
+    `<b>내방 경위:</b> ${data.referral}`,
+    `<b>미해결 문제:</b> ${data.unresolvedIssues.join(', ')}`,
+    `<b>주 호소 문제:</b> ${data.mainConcern}`,
+    data.counselingExpectation ? `<b>상담 기대:</b> ${data.counselingExpectation}` : '',
+    data.pastCounselingExperience ? `<b>과거 상담 경험:</b> ${data.pastCounselingExperience}` : '',
   ]
     .filter(Boolean)
     .join('\n');

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Button from '@/components/shared/Button';
 import SuccessModal from '@/components/shared/SuccessModal';
+import PrivacyConsentSection from './PrivacyConsentSection';
 
 const counselingOptions = [
   '개인상담',
@@ -15,7 +16,6 @@ const counselingOptions = [
   '심리검사 - 지능검사 (K-WAIS)',
   '심리검사 - 정서검사',
   '기업심리(EAP)',
-  '추천 패키지 (정부지원)',
   '기타',
 ];
 
@@ -32,11 +32,6 @@ function getSuccessContent(counselingType: string): { title: string; message: st
         title: '프로그램 신청이 접수되었습니다',
         message: '프로그램 일정 및 참여 안내를 빠른 시일 내 연락드리겠습니다.',
       };
-    case '추천 패키지 (정부지원)':
-      return {
-        title: '신청이 접수되었습니다',
-        message: '정부지원 프로그램은 내부 검토 후\n자격 요건 및 진행 절차를 안내드리겠습니다.',
-      };
     case '기업심리(EAP)':
       return {
         title: '기업심리 문의가 접수되었습니다',
@@ -48,7 +43,6 @@ function getSuccessContent(counselingType: string): { title: string; message: st
         message: '확인 후 빠른 시일 내 연락드리겠습니다.',
       };
     default:
-      // 개인상담, 커플상담, 가족상담, 그룹상담
       return {
         title: '상담 신청이 접수되었습니다',
         message: '담당 상담사가 1~2일 이내 연락드리겠습니다.\n편안한 마음으로 기다려주세요.',
@@ -63,33 +57,46 @@ function formatPhone(value: string) {
   return `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
 }
 
+const inputClass =
+  'w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black placeholder-beige-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors';
+
 export default function InquiryForm() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
+    birthdate: '',
+    address: '',
     counselingType: '',
     message: '',
   });
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [successContent, setSuccessContent] = useState({ title: '', message: '' });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!privacyConsent) {
+      alert('개인정보 수집 및 이용에 동의해주세요.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
       const res = await fetch('/api/inquiries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, privacyConsent }),
       });
 
       if (res.ok) {
         setSuccessContent(getSuccessContent(formData.counselingType));
         setModalOpen(true);
-        setFormData({ name: '', phone: '', email: '', counselingType: '', message: '' });
+        setFormData({ name: '', phone: '', email: '', birthdate: '', address: '', counselingType: '', message: '' });
+        setPrivacyConsent(false);
       } else {
         alert('문의 접수 중 오류가 발생했습니다. 다시 시도해주세요.');
       }
@@ -103,6 +110,7 @@ export default function InquiryForm() {
   return (
     <>
       <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
+        {/* 이름 + 연락처 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
@@ -114,7 +122,7 @@ export default function InquiryForm() {
               required
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black placeholder-beige-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+              className={inputClass}
               placeholder="홍길동"
             />
           </div>
@@ -128,27 +136,60 @@ export default function InquiryForm() {
               required
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
-              className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black placeholder-beige-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+              className={inputClass}
               placeholder="010-1234-5678"
               inputMode="numeric"
             />
           </div>
         </div>
 
+        {/* 생년월일 + 이메일 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div>
+            <label htmlFor="birthdate" className="block text-sm font-medium text-black mb-2">
+              생년월일 <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="date"
+              id="birthdate"
+              required
+              value={formData.birthdate}
+              onChange={(e) => setFormData({ ...formData, birthdate: e.target.value })}
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
+              이메일
+            </label>
+            <input
+              type="text"
+              id="email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className={inputClass}
+              placeholder="email@example.com (선택사항)"
+            />
+          </div>
+        </div>
+
+        {/* 주소 */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
-            이메일
+          <label htmlFor="address" className="block text-sm font-medium text-black mb-2">
+            주소 <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
-            id="email"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black placeholder-beige-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
-            placeholder="email@example.com (선택사항)"
+            id="address"
+            required
+            value={formData.address}
+            onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+            className={inputClass}
+            placeholder="시/군/구 까지 입력해주세요"
           />
         </div>
 
+        {/* 상담 유형 */}
         <div>
           <label htmlFor="counselingType" className="block text-sm font-medium text-black mb-2">
             상담 유형 <span className="text-red-500">*</span>
@@ -158,7 +199,7 @@ export default function InquiryForm() {
             required
             value={formData.counselingType}
             onChange={(e) => setFormData({ ...formData, counselingType: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+            className={inputClass}
           >
             <option value="">선택해주세요</option>
             {counselingOptions.map((option) => (
@@ -167,6 +208,7 @@ export default function InquiryForm() {
           </select>
         </div>
 
+        {/* 상담 내용 */}
         <div>
           <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
             상담 내용 <span className="text-red-500">*</span>
@@ -177,10 +219,16 @@ export default function InquiryForm() {
             rows={5}
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black placeholder-beige-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors resize-none"
+            className={`${inputClass} resize-none`}
             placeholder="상담받고 싶은 내용을 자유롭게 적어주세요."
           />
         </div>
+
+        {/* 개인정보 동의 */}
+        <PrivacyConsentSection
+          checked={privacyConsent}
+          onChange={setPrivacyConsent}
+        />
 
         <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
           {isSubmitting ? '접수 중...' : '상담 문의하기'}
