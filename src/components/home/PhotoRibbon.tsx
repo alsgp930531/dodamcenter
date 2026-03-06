@@ -5,19 +5,21 @@ import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const photos = [
-  { src: '/images/photos/ribbon-seminar-1.jpg', position: 'center' },
-  { src: '/images/photos/ribbon-seminar-2.jpg', position: 'center' },
-  { src: '/images/photos/ribbon-seminar-3.jpg', position: 'center' },
-  { src: '/images/photos/ribbon-seminar-4.jpg', position: 'center' },
-  { src: '/images/photos/ribbon-seminar-5.jpg', position: 'center' },
-  { src: '/images/photos/ribbon-seminar-6.jpg', position: 'center' },
-  { src: '/images/photos/ribbon-seminar-7.jpg', position: 'center' },
-  { src: '/images/photos/ribbon-seminar-8.jpg', position: 'center' },
+  { src: '/images/photos/seminar-1.jpg', position: 'center' },
+  { src: '/images/photos/seminar-2.jpg', position: 'center' },
+  { src: '/images/photos/seminar-3.jpg', position: 'center' },
+  { src: '/images/photos/seminar-4.jpg', position: 'center' },
+  { src: '/images/photos/seminar-5.jpg', position: 'center' },
+  { src: '/images/photos/seminar-6.jpg', position: 'center' },
+  { src: '/images/photos/seminar-7.jpg', position: 'center' },
+  { src: '/images/photos/seminar-8.jpg', position: 'center' },
+  { src: '/images/photos/seminar-9.jpg', position: 'center' },
+  { src: '/images/photos/seminar-10.jpg', position: 'center' },
 ];
 
 const COUNT = photos.length;
 const ANGLE_STEP = 360 / COUNT;
-const RADIUS = 340;
+const RADIUS = 380;
 
 // ─── Canvas ribbon drawing ───────────────────────────────────────────────────
 const PERSP = 1200;

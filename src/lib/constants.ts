@@ -43,6 +43,6 @@ export const COUNSELING_TYPES = [
 export const TRUST_INDICATORS = [
   { label: '누적 상담', value: 5000, suffix: '건+', icon: 'chat' },
   { label: '상담 만족도', value: 4.9, suffix: '/5.0', icon: 'star' },
-  { label: '전문 상담사', value: 30, suffix: '명', icon: 'people' },
-  { label: '운영 기간', value: 7, suffix: '년+', icon: 'calendar' },
+  { label: '전문 상담사', value: 31, suffix: '명', icon: 'people' },
+  { label: '운영 기간', value: 3, suffix: '년+', icon: 'calendar' },
 ] as const;
