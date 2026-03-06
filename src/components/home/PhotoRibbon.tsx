@@ -23,10 +23,10 @@ const RADIUS = 420;
 
 // ─── Canvas ribbon drawing ───────────────────────────────────────────────────
 const PERSP = 1200;
-const RIBBON_R = 420;
+const RIBBON_R = 520;
 const BAND_HALF = 16;
-const WAVE_AMP = 65;
-const WAVE_FREQ = 2; // number of complete waves around the ribbon
+const WAVE_AMP = 35;
+const WAVE_FREQ = 1.5;
 const NUM_PTS = 200;
 const RIBBON_COLOR = { r: 245, g: 242, b: 237 };
 const SHADOW_COLOR = { r: 0, g: 0, b: 0 };
