@@ -6,11 +6,11 @@ import Link from 'next/link';
 
 const photos = [
   { src: '/images/photos/seminar-1.jpg', position: 'center' },
-  { src: '/images/photos/seminar-2.jpg', position: 'center' },
+  { src: '/images/photos/seminar-2.jpg', position: '65% center' },
   { src: '/images/photos/seminar-3.jpg', position: 'center' },
   { src: '/images/photos/seminar-4.jpg', position: 'center' },
   { src: '/images/photos/seminar-5.jpg', position: '60% center' },
-  { src: '/images/photos/seminar-6.jpg', position: '60% center' },
+  { src: '/images/photos/seminar-6.jpg', position: '70% center' },
   { src: '/images/photos/seminar-7.jpg', position: 'center' },
   { src: '/images/photos/seminar-8.jpg', position: 'right center' },
   { src: '/images/photos/seminar-9.jpg', position: '65% center' },
@@ -19,7 +19,7 @@ const photos = [
 
 const COUNT = photos.length;
 const ANGLE_STEP = 360 / COUNT;
-const RADIUS = 380;
+const RADIUS = 500;
 
 // ─── Canvas ribbon drawing ───────────────────────────────────────────────────
 const PERSP = 1200;
