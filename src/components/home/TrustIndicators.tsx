@@ -20,7 +20,6 @@ function Counter({ value, suffix, duration = 1.8 }: { value: number; suffix: str
     const animate = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / durationMs, 1);
-      // easeOutExpo for fast start, smooth finish
       const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const current = eased * value;
 
@@ -41,24 +40,113 @@ function Counter({ value, suffix, duration = 1.8 }: { value: number; suffix: str
   );
 }
 
-// Korean branch locations
-const BRANCHES = [
-  { x: 195, y: 115, label: '서울', primary: true },
-  { x: 210, y: 125, label: '성남', primary: false },
-  { x: 185, y: 130, label: '인천', primary: false },
-  { x: 220, y: 140, label: '수원', primary: false },
-  { x: 250, y: 155, label: '원주', primary: false },
-  { x: 195, y: 165, label: '천안', primary: false },
-  { x: 230, y: 180, label: '대전', primary: false },
-  { x: 195, y: 205, label: '전주', primary: false },
-  { x: 270, y: 195, label: '대구', primary: false },
-  { x: 165, y: 235, label: '광주', primary: false },
-  { x: 290, y: 225, label: '울산', primary: false },
-  { x: 275, y: 240, label: '부산', primary: false },
-  { x: 140, y: 290, label: '제주', primary: false },
+// Korean branch locations with distance from Seoul for stagger timing
+const BRANCHES: { x: number; y: number; label: string; primary: boolean; delay: number }[] = [
+  { x: 195, y: 115, label: '서울', primary: true, delay: 0 },
+  { x: 210, y: 125, label: '성남', primary: false, delay: 0.3 },
+  { x: 185, y: 130, label: '인천', primary: false, delay: 0.35 },
+  { x: 220, y: 140, label: '수원', primary: false, delay: 0.4 },
+  { x: 250, y: 155, label: '원주', primary: false, delay: 0.55 },
+  { x: 195, y: 165, label: '천안', primary: false, delay: 0.5 },
+  { x: 230, y: 180, label: '대전', primary: false, delay: 0.65 },
+  { x: 195, y: 205, label: '전주', primary: false, delay: 0.75 },
+  { x: 270, y: 195, label: '대구', primary: false, delay: 0.8 },
+  { x: 165, y: 235, label: '광주', primary: false, delay: 0.9 },
+  { x: 290, y: 225, label: '울산', primary: false, delay: 0.95 },
+  { x: 275, y: 240, label: '부산', primary: false, delay: 1.0 },
+  { x: 140, y: 290, label: '제주', primary: false, delay: 1.15 },
 ];
 
-function DotKoreaMap() {
+// Connection lines from Seoul hub
+const CONNECTIONS = [
+  { x1: 195, y1: 115, x2: 210, y2: 125, delay: 0.2 },
+  { x1: 195, y1: 115, x2: 185, y2: 130, delay: 0.25 },
+  { x1: 195, y1: 115, x2: 220, y2: 140, delay: 0.3 },
+  { x1: 195, y1: 115, x2: 250, y2: 155, delay: 0.45 },
+  { x1: 195, y1: 115, x2: 195, y2: 165, delay: 0.4 },
+  { x1: 195, y1: 165, x2: 230, y2: 180, delay: 0.55 },
+  { x1: 230, y1: 180, x2: 270, y2: 195, delay: 0.7 },
+  { x1: 230, y1: 180, x2: 195, y2: 205, delay: 0.65 },
+  { x1: 270, y1: 195, x2: 290, y2: 225, delay: 0.85 },
+  { x1: 270, y1: 195, x2: 275, y2: 240, delay: 0.9 },
+  { x1: 195, y1: 205, x2: 165, y2: 235, delay: 0.8 },
+];
+
+function AnimatedLine({ x1, y1, x2, y2, delay, isActive }: {
+  x1: number; y1: number; x2: number; y2: number; delay: number; isActive: boolean;
+}) {
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  const length = Math.sqrt(dx * dx + dy * dy);
+
+  return (
+    <line
+      x1={x1} y1={y1} x2={x2} y2={y2}
+      stroke="#8B7355"
+      strokeWidth="1"
+      strokeDasharray={length}
+      strokeDashoffset={isActive ? 0 : length}
+      opacity={isActive ? 0.5 : 0}
+      style={{
+        transition: `stroke-dashoffset 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, opacity 0.3s ease ${delay}s`,
+      }}
+    />
+  );
+}
+
+function AnimatedMarker({ loc, isActive }: {
+  loc: typeof BRANCHES[0]; isActive: boolean;
+}) {
+  return (
+    <g
+      style={{
+        opacity: isActive ? 1 : 0,
+        transform: isActive ? 'scale(1)' : 'scale(0)',
+        transformOrigin: `${loc.x}px ${loc.y}px`,
+        transition: `opacity 0.4s ease ${loc.delay}s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) ${loc.delay}s`,
+      }}
+    >
+      {/* Pulse ring for primary (Seoul) */}
+      {loc.primary && (
+        <>
+          <circle cx={loc.x} cy={loc.y} r="12" fill="none" stroke="#8B7355" strokeWidth="1" opacity="0.4">
+            <animate attributeName="r" from="8" to="28" dur="2.5s" repeatCount="indefinite" />
+            <animate attributeName="opacity" from="0.5" to="0" dur="2.5s" repeatCount="indefinite" />
+          </circle>
+          <circle cx={loc.x} cy={loc.y} r="12" fill="none" stroke="#8B7355" strokeWidth="0.5" opacity="0.3">
+            <animate attributeName="r" from="10" to="36" dur="3s" begin="0.8s" repeatCount="indefinite" />
+            <animate attributeName="opacity" from="0.4" to="0" dur="3s" begin="0.8s" repeatCount="indefinite" />
+          </circle>
+        </>
+      )}
+      {/* Small pulse for non-primary */}
+      {!loc.primary && (
+        <circle cx={loc.x} cy={loc.y} r="4" fill="none" stroke="#8B7355" strokeWidth="0.5" opacity="0.3">
+          <animate attributeName="r" from="4" to="12" dur="2.5s" begin={`${loc.delay + 0.5}s`} repeatCount="indefinite" />
+          <animate attributeName="opacity" from="0.4" to="0" dur="2.5s" begin={`${loc.delay + 0.5}s`} repeatCount="indefinite" />
+        </circle>
+      )}
+      {/* Outer dot */}
+      <circle cx={loc.x} cy={loc.y} r={loc.primary ? 7 : 4.5} fill="#8B7355" />
+      {/* Inner dot */}
+      <circle cx={loc.x} cy={loc.y} r={loc.primary ? 3.5 : 2} fill="white" />
+      {/* Label */}
+      <text
+        x={loc.x}
+        y={loc.y - (loc.primary ? 14 : 9)}
+        textAnchor="middle"
+        fill="white"
+        fontSize={loc.primary ? 12 : 9}
+        fontWeight={loc.primary ? 700 : 500}
+        opacity={loc.primary ? 0.9 : 0.7}
+      >
+        {loc.label}
+      </text>
+    </g>
+  );
+}
+
+function DotKoreaMap({ isActive }: { isActive: boolean }) {
   return (
     <svg viewBox="0 0 400 380" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
       <defs>
@@ -108,49 +196,16 @@ function DotKoreaMap() {
         ])}
       </g>
 
-      {/* Connection lines between branches */}
-      <g stroke="#8B7355" strokeWidth="0.5" opacity="0.2">
-        {/* Hub lines from Seoul */}
-        <line x1="195" y1="115" x2="210" y2="125" />
-        <line x1="195" y1="115" x2="185" y2="130" />
-        <line x1="195" y1="115" x2="220" y2="140" />
-        <line x1="195" y1="115" x2="250" y2="155" />
-        <line x1="195" y1="115" x2="195" y2="165" />
-        <line x1="195" y1="165" x2="230" y2="180" />
-        <line x1="230" y1="180" x2="270" y2="195" />
-        <line x1="230" y1="180" x2="195" y2="205" />
-        <line x1="270" y1="195" x2="290" y2="225" />
-        <line x1="270" y1="195" x2="275" y2="240" />
-        <line x1="195" y1="205" x2="165" y2="235" />
+      {/* Animated connection lines */}
+      <g>
+        {CONNECTIONS.map((conn, i) => (
+          <AnimatedLine key={i} {...conn} isActive={isActive} />
+        ))}
       </g>
 
-      {/* Branch markers */}
+      {/* Animated branch markers */}
       {BRANCHES.map((loc, i) => (
-        <g key={i}>
-          {/* Pulse ring for primary (Seoul) */}
-          {loc.primary && (
-            <circle cx={loc.x} cy={loc.y} r="12" fill="none" stroke="#8B7355" strokeWidth="1" opacity="0.4">
-              <animate attributeName="r" from="8" to="24" dur="2s" repeatCount="indefinite" />
-              <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite" />
-            </circle>
-          )}
-          {/* Outer dot */}
-          <circle cx={loc.x} cy={loc.y} r={loc.primary ? 7 : 4} fill="#8B7355" />
-          {/* Inner dot */}
-          <circle cx={loc.x} cy={loc.y} r={loc.primary ? 3.5 : 2} fill="white" />
-          {/* Label */}
-          <text
-            x={loc.x}
-            y={loc.y - (loc.primary ? 14 : 9)}
-            textAnchor="middle"
-            fill="white"
-            fontSize={loc.primary ? 12 : 9}
-            fontWeight={loc.primary ? 700 : 500}
-            opacity={loc.primary ? 0.9 : 0.6}
-          >
-            {loc.label}
-          </text>
-        </g>
+        <AnimatedMarker key={i} loc={loc} isActive={isActive} />
       ))}
     </svg>
   );
@@ -164,6 +219,8 @@ function generateDots(coords: number[][]) {
 
 export default function TrustIndicators() {
   const ref = useRef<HTMLElement>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
+  const isMapInView = useInView(mapRef, { once: true, amount: 0.3 });
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
@@ -173,9 +230,9 @@ export default function TrustIndicators() {
   return (
     <section ref={ref} className="relative h-auto py-20 md:h-screen md:py-0 flex items-center overflow-hidden bg-dark" data-header-theme="dark">
       {/* Dotted Korea Map Background */}
-      <motion.div style={{ y: bgY }} className="absolute inset-0 flex items-center justify-center opacity-60">
+      <motion.div ref={mapRef} style={{ y: bgY }} className="absolute inset-0 flex items-center justify-center opacity-60">
         <div className="w-full max-w-3xl mx-auto px-4">
-          <DotKoreaMap />
+          <DotKoreaMap isActive={isMapInView} />
         </div>
       </motion.div>
 

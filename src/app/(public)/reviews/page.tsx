@@ -9,6 +9,38 @@ export const metadata: Metadata = {
 
 const sampleReviews = [
   {
+    id: '33',
+    clientInitial: '김○○',
+    counselingType: '가족상담',
+    content: '부모님과 갈등이 깊어서 집에 가기 싫을 정도였는데, 가족상담을 받으면서 서로의 입장을 이해하게 되었습니다. 완벽하진 않지만 대화가 다시 시작된 것만으로도 큰 변화예요.',
+    rating: 5,
+    createdAt: '2026.03.08',
+  },
+  {
+    id: '34',
+    clientInitial: '최○○',
+    counselingType: '심리검사 - 종합심리검사',
+    content: '막연하게 불안하고 우울했는데, 종합심리검사를 통해 제 성향과 심리 상태를 구체적으로 알게 되었습니다. 결과 해석도 꼼꼼하게 해주셔서 앞으로 어떤 방향으로 노력하면 좋을지 명확해졌어요.',
+    rating: 5,
+    createdAt: '2026.02.14',
+  },
+  {
+    id: '35',
+    clientInitial: '이○○',
+    counselingType: '추천 패키지 (정부지원)',
+    content: '경제적 부담 때문에 상담을 망설였는데, 정부지원 패키지 덕분에 부담 없이 시작할 수 있었습니다. 체계적인 프로그램 구성이라 단순 상담 이상의 효과를 느꼈고, 지금은 일상이 훨씬 안정적이에요.',
+    rating: 5,
+    createdAt: '2026.01.20',
+  },
+  {
+    id: '36',
+    clientInitial: '박○○',
+    counselingType: '개인상담',
+    content: '직장 내 스트레스로 잠도 못 자고 힘들었는데, 상담을 통해 제 감정을 객관적으로 바라보는 법을 배웠습니다. 이제는 퇴근 후에도 마음이 한결 편안해졌어요.',
+    rating: 5,
+    createdAt: '2025.12.10',
+  },
+  {
     id: '1',
     clientInitial: '김○○',
     counselingType: '개인상담',
