@@ -25,7 +25,7 @@ const services = [
     title: '가족상담',
     category: '상담',
     description: '건강한 가족 관계 회복을 지원합니다',
-    image: '/images/photos/service-couple.jpg',
+    image: '/images/photos/service-group.jpg',
     href: '/counseling/family',
   },
   {
@@ -39,7 +39,7 @@ const services = [
     title: '심리검사',
     category: '프로그램',
     description: '과학적 심리검사로 나를 이해하기',
-    image: '/images/photos/service-group.jpg',
+    image: '/images/photos/service-couple.jpg',
     href: '/testing',
   },
   {
