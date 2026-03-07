@@ -249,7 +249,7 @@ export default function GovSupportForm() {
         </Button>
 
         <p className="text-xs text-black-light/60 text-center break-keep">
-          매월 선정 인원이 제한되어 있습니다. 심사 후 개별 안내드립니다.
+          연간 선정 인원이 제한되어 있습니다. 심사 후 개별 안내드립니다.
         </p>
       </form>
 
@@ -257,7 +257,7 @@ export default function GovSupportForm() {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         title="신청이 접수되었습니다"
-        message={'내부 심사를 거쳐 선정 여부를 안내드립니다.\n선정 시 첫 3회 상담이 무료로 제공됩니다.'}
+        message={'내부 심사를 거쳐 선정 여부를 안내드립니다.\n선정 시 무료 상담 혜택이 제공됩니다.'}
       />
     </>
   );
