@@ -249,15 +249,15 @@ export default function GovSupportForm() {
         </Button>
 
         <p className="text-xs text-black-light/60 text-center break-keep">
-          첫 상담 무료 · 신청 후 24시간 이내 안내드립니다.
+          매월 선정 인원이 제한되어 있습니다. 심사 후 개별 안내드립니다.
         </p>
       </form>
 
       <SuccessModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        title="신청이 완료되었습니다"
-        message={'첫 상담은 무료로 진행됩니다.\n24시간 이내 상담 일정을 안내드릴게요.'}
+        title="신청이 접수되었습니다"
+        message={'내부 심사를 거쳐 선정 여부를 안내드립니다.\n선정 시 첫 3회 상담이 무료로 제공됩니다.'}
       />
     </>
   );

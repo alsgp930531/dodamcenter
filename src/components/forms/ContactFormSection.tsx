@@ -43,7 +43,7 @@ export default function ContactFormSection() {
         <p className="text-black-light">
           {activeForm === 'general'
             ? '아래 양식을 작성해주시면 빠르게 연락드리겠습니다.'
-            : '20~30대 청년을 위한 도담센터 무료 상담 프로그램입니다.'}
+            : '매월 소수 인원을 선정하여 무료 상담을 제공합니다.'}
         </p>
       </div>
 
