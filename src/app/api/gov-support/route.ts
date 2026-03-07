@@ -9,27 +9,24 @@ export async function POST(request: NextRequest) {
     name,
     phone,
     birthdate,
-    address,
-    referral,
     preferredCounselor,
-    unresolvedIssues,
+    concerns,
     mainConcern,
     counselingExpectation,
-    pastCounselingExperience,
   } = body;
 
-  if (!name || !phone || !birthdate || !address || !referral || !unresolvedIssues?.length || !mainConcern) {
+  if (!name || !phone || !birthdate || !concerns?.length || !mainConcern) {
     return NextResponse.json({ error: '필수 항목을 모두 입력해주세요.' }, { status: 400 });
   }
 
-  // Store as an inquiry with counselingType = '정부지원 상담'
+  // Store as an inquiry with counselingType = '청년 응원 패키지'
   const inquiry = await create<Inquiry>('inquiries', {
     id: '',
     name,
     phone,
     email: '',
-    counselingType: '정부지원 상담',
-    message: `[생년월일] ${birthdate}\n[주소] ${address}\n[내방경위] ${referral}${preferredCounselor ? `\n[추천상담사] ${preferredCounselor}` : ''}\n[미해결문제] ${unresolvedIssues.join(', ')}\n[주호소문제] ${mainConcern}${counselingExpectation ? `\n[상담기대] ${counselingExpectation}` : ''}${pastCounselingExperience ? `\n[과거상담경험] ${pastCounselingExperience}` : ''}`,
+    counselingType: '청년 응원 패키지',
+    message: `[생년월일] ${birthdate}${preferredCounselor ? `\n[희망상담사] ${preferredCounselor}` : ''}\n[고민유형] ${concerns.join(', ')}\n[주호소문제] ${mainConcern}${counselingExpectation ? `\n[상담기대] ${counselingExpectation}` : ''}`,
     isRead: false,
     createdAt: new Date().toISOString(),
   });
@@ -39,13 +36,13 @@ export async function POST(request: NextRequest) {
     name,
     phone,
     birthdate,
-    address,
-    referral,
+    address: '',
+    referral: '청년 응원 패키지',
     preferredCounselor,
-    unresolvedIssues,
+    unresolvedIssues: concerns,
     mainConcern,
     counselingExpectation,
-    pastCounselingExperience,
+    pastCounselingExperience: '',
   }));
 
   return NextResponse.json(inquiry, { status: 201 });

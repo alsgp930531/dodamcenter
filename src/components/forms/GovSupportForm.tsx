@@ -4,9 +4,8 @@ import { useState } from 'react';
 import Button from '@/components/shared/Button';
 import SuccessModal from '@/components/shared/SuccessModal';
 import PrivacyConsentSection from './PrivacyConsentSection';
-import { counselorsData } from '@/data/counselors';
 
-const unresolvedIssueOptions = [
+const concernOptions = [
   '우울',
   '불안',
   '강박',
@@ -17,21 +16,11 @@ const unresolvedIssueOptions = [
   '자존감',
   '진로/직업',
   '학업/학교생활',
-  '중독 (알코올/게임 등)',
+  '번아웃/스트레스',
   '트라우마/PTSD',
   '섭식문제',
   '수면문제',
   '자해/자살',
-  '기타',
-];
-
-const referralOptions = [
-  '본인 의뢰',
-  '가족/지인 권유',
-  '의료기관 의뢰',
-  '학교/직장 의뢰',
-  '정부기관 안내',
-  '인터넷 검색',
   '기타',
 ];
 
@@ -50,24 +39,21 @@ export default function GovSupportForm() {
     name: '',
     phone: '',
     birthdate: '',
-    address: '',
-    referral: '',
     preferredCounselor: '',
-    unresolvedIssues: [] as string[],
+    concerns: [] as string[],
     mainConcern: '',
     counselingExpectation: '',
-    pastCounselingExperience: '',
   });
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const handleIssueToggle = (issue: string) => {
+  const handleConcernToggle = (concern: string) => {
     setFormData((prev) => ({
       ...prev,
-      unresolvedIssues: prev.unresolvedIssues.includes(issue)
-        ? prev.unresolvedIssues.filter((i) => i !== issue)
-        : [...prev.unresolvedIssues, issue],
+      concerns: prev.concerns.includes(concern)
+        ? prev.concerns.filter((i) => i !== concern)
+        : [...prev.concerns, concern],
     }));
   };
 
@@ -79,8 +65,8 @@ export default function GovSupportForm() {
       return;
     }
 
-    if (formData.unresolvedIssues.length === 0) {
-      alert('미해결 문제 유형을 하나 이상 선택해주세요.');
+    if (formData.concerns.length === 0) {
+      alert('고민 유형을 하나 이상 선택해주세요.');
       return;
     }
 
@@ -99,13 +85,10 @@ export default function GovSupportForm() {
           name: '',
           phone: '',
           birthdate: '',
-          address: '',
-          referral: '',
           preferredCounselor: '',
-          unresolvedIssues: [],
+          concerns: [],
           mainConcern: '',
           counselingExpectation: '',
-          pastCounselingExperience: '',
         });
         setPrivacyConsent(false);
       } else {
@@ -124,12 +107,12 @@ export default function GovSupportForm() {
         {/* 이름 + 연락처 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <div>
-            <label htmlFor="gov-name" className="block text-sm font-medium text-black mb-2">
-              내담자 성명 <span className="text-red-500">*</span>
+            <label htmlFor="care-name" className="block text-sm font-medium text-black mb-2">
+              이름 <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
-              id="gov-name"
+              id="care-name"
               required
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -138,12 +121,12 @@ export default function GovSupportForm() {
             />
           </div>
           <div>
-            <label htmlFor="gov-phone" className="block text-sm font-medium text-black mb-2">
+            <label htmlFor="care-phone" className="block text-sm font-medium text-black mb-2">
               연락처 <span className="text-red-500">*</span>
             </label>
             <input
               type="tel"
-              id="gov-phone"
+              id="care-phone"
               required
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
@@ -157,12 +140,12 @@ export default function GovSupportForm() {
         {/* 생년월일 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <div>
-            <label htmlFor="gov-birthdate" className="block text-sm font-medium text-black mb-2">
+            <label htmlFor="care-birthdate" className="block text-sm font-medium text-black mb-2">
               생년월일 <span className="text-red-500">*</span>
             </label>
             <input
               type="date"
-              id="gov-birthdate"
+              id="care-birthdate"
               required
               value={formData.birthdate}
               onChange={(e) => setFormData({ ...formData, birthdate: e.target.value })}
@@ -170,93 +153,55 @@ export default function GovSupportForm() {
             />
           </div>
           <div>
-            <label htmlFor="gov-referral" className="block text-sm font-medium text-black mb-2">
-              내방 경위 <span className="text-red-500">*</span>
+            <label htmlFor="care-counselor" className="block text-sm font-medium text-black mb-2">
+              희망 상담사
+              <span className="text-xs text-black-light/60 ml-2">(선택사항)</span>
             </label>
-            <select
-              id="gov-referral"
-              required
-              value={formData.referral}
-              onChange={(e) => setFormData({ ...formData, referral: e.target.value })}
+            <input
+              type="text"
+              id="care-counselor"
+              value={formData.preferredCounselor}
+              onChange={(e) => setFormData({ ...formData, preferredCounselor: e.target.value })}
               className={inputClass}
-            >
-              <option value="">선택해주세요</option>
-              {referralOptions.map((option) => (
-                <option key={option} value={option}>{option}</option>
-              ))}
-            </select>
+              placeholder="기존 상담사가 있다면 성함을 적어주세요"
+            />
           </div>
         </div>
 
-        {/* 주소 */}
-        <div>
-          <label htmlFor="gov-address" className="block text-sm font-medium text-black mb-2">
-            주소 <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            id="gov-address"
-            required
-            value={formData.address}
-            onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-            className={inputClass}
-            placeholder="시/군/구 까지 입력해주세요"
-          />
-        </div>
-
-        {/* 추천 상담사 */}
-        <div>
-          <label htmlFor="gov-counselor" className="block text-sm font-medium text-black mb-2">
-            추천 상담사
-            <span className="text-xs text-black-light/60 ml-2">(선택사항)</span>
-          </label>
-          <select
-            id="gov-counselor"
-            value={formData.preferredCounselor}
-            onChange={(e) => setFormData({ ...formData, preferredCounselor: e.target.value })}
-            className={inputClass}
-          >
-            <option value="">상담사를 선택해주세요 (선택사항)</option>
-            {counselorsData.map((c) => (
-              <option key={c.name} value={c.name}>{c.name} ({c.credentials})</option>
-            ))}
-          </select>
-        </div>
-
-        {/* 미해결 문제 유형 (multi-checkbox) */}
+        {/* 고민 유형 (multi-checkbox) */}
         <div>
           <label className="block text-sm font-medium text-black mb-3">
-            미해결 문제 유형 <span className="text-red-500">*</span>
+            고민 유형 <span className="text-red-500">*</span>
             <span className="text-xs text-black-light/60 ml-2">(복수 선택 가능)</span>
           </label>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            {unresolvedIssueOptions.map((issue) => (
+            {concernOptions.map((concern) => (
               <label
-                key={issue}
+                key={concern}
                 className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border cursor-pointer transition-all text-sm ${
-                  formData.unresolvedIssues.includes(issue)
+                  formData.concerns.includes(concern)
                     ? 'border-accent bg-accent/5 text-accent'
                     : 'border-beige-200 bg-white text-black-light hover:border-accent/30'
                 }`}
               >
                 <input
                   type="checkbox"
-                  checked={formData.unresolvedIssues.includes(issue)}
-                  onChange={() => handleIssueToggle(issue)}
+                  checked={formData.concerns.includes(concern)}
+                  onChange={() => handleConcernToggle(concern)}
                   className="sr-only"
                 />
                 <span className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 ${
-                  formData.unresolvedIssues.includes(issue)
+                  formData.concerns.includes(concern)
                     ? 'border-accent bg-accent'
                     : 'border-beige-200'
                 }`}>
-                  {formData.unresolvedIssues.includes(issue) && (
+                  {formData.concerns.includes(concern) && (
                     <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   )}
                 </span>
-                {issue}
+                {concern}
               </label>
             ))}
           </div>
@@ -264,11 +209,11 @@ export default function GovSupportForm() {
 
         {/* 주 호소 문제 */}
         <div>
-          <label htmlFor="gov-mainConcern" className="block text-sm font-medium text-black mb-2">
-            주 호소 문제 <span className="text-red-500">*</span>
+          <label htmlFor="care-mainConcern" className="block text-sm font-medium text-black mb-2">
+            현재 가장 힘든 점 <span className="text-red-500">*</span>
           </label>
           <textarea
-            id="gov-mainConcern"
+            id="care-mainConcern"
             required
             rows={4}
             value={formData.mainConcern}
@@ -280,31 +225,16 @@ export default function GovSupportForm() {
 
         {/* 상담 기대 사항 */}
         <div>
-          <label htmlFor="gov-expectation" className="block text-sm font-medium text-black mb-2">
+          <label htmlFor="care-expectation" className="block text-sm font-medium text-black mb-2">
             상담 기대 사항
           </label>
           <textarea
-            id="gov-expectation"
+            id="care-expectation"
             rows={3}
             value={formData.counselingExpectation}
             onChange={(e) => setFormData({ ...formData, counselingExpectation: e.target.value })}
             className={`${inputClass} resize-none`}
             placeholder="상담을 통해 기대하는 변화나 도움을 적어주세요. (선택사항)"
-          />
-        </div>
-
-        {/* 과거 상담 경험 */}
-        <div>
-          <label htmlFor="gov-pastExperience" className="block text-sm font-medium text-black mb-2">
-            과거 상담 경험
-          </label>
-          <textarea
-            id="gov-pastExperience"
-            rows={3}
-            value={formData.pastCounselingExperience}
-            onChange={(e) => setFormData({ ...formData, pastCounselingExperience: e.target.value })}
-            className={`${inputClass} resize-none`}
-            placeholder="이전에 상담을 받으신 경험이 있다면 적어주세요. (선택사항)"
           />
         </div>
 
@@ -315,19 +245,19 @@ export default function GovSupportForm() {
         />
 
         <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? '접수 중...' : '정부지원 상담 신청하기'}
+          {isSubmitting ? '접수 중...' : '청년 응원 패키지 신청하기'}
         </Button>
 
         <p className="text-xs text-black-light/60 text-center break-keep">
-          정부지원 바우처 상담은 내부 검토 후 자격 요건 및 진행 절차를 안내드립니다.
+          신청 후 센터에서 대상 여부 확인 및 상담 일정을 안내드립니다.
         </p>
       </form>
 
       <SuccessModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        title="정부지원 상담 신청이 접수되었습니다"
-        message={'내부 검토 후 자격 요건 및\n진행 절차를 안내드리겠습니다.'}
+        title="청년 응원 패키지 신청이 접수되었습니다"
+        message={'대상 여부 확인 후\n상담 일정을 안내드리겠습니다.'}
       />
     </>
   );

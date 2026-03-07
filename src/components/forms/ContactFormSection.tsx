@@ -31,19 +31,19 @@ export default function ContactFormSection() {
               : 'bg-white text-black-light border border-beige-200 hover:border-accent/30'
           }`}
         >
-          정부지원 상담 신청
+          도담 청년 응원 패키지
         </button>
       </div>
 
       {/* Form Description */}
       <div className="mb-8">
         <h2 className="text-2xl font-semibold text-black mb-2">
-          {activeForm === 'general' ? '상담 신청' : '정부지원 상담 신청'}
+          {activeForm === 'general' ? '상담 신청' : '도담 청년 응원 패키지'}
         </h2>
         <p className="text-black-light">
           {activeForm === 'general'
             ? '아래 양식을 작성해주시면 빠르게 연락드리겠습니다.'
-            : '정부지원 바우처 상담을 위한 접수 양식입니다.'}
+            : '20~30대 청년을 위한 도담센터 무료 상담 프로그램입니다.'}
         </p>
       </div>
 
