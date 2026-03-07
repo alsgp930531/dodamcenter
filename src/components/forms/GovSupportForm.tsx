@@ -249,15 +249,15 @@ export default function GovSupportForm() {
         </Button>
 
         <p className="text-xs text-black-light/60 text-center break-keep">
-          신청 후 센터에서 대상 여부 확인 및 상담 일정을 안내드립니다.
+          첫 상담 무료 · 신청 후 24시간 이내 안내드립니다.
         </p>
       </form>
 
       <SuccessModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        title="청년 응원 패키지 신청이 접수되었습니다"
-        message={'대상 여부 확인 후\n상담 일정을 안내드리겠습니다.'}
+        title="신청이 완료되었습니다"
+        message={'첫 상담은 무료로 진행됩니다.\n24시간 이내 상담 일정을 안내드릴게요.'}
       />
     </>
   );
