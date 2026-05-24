@@ -83,7 +83,7 @@ export default function BrandStory() {
               </h2>
 
               <p className="mt-6 text-base md:text-lg text-white/80 leading-relaxed max-w-md">
-                다온상담센터는 20~30대 청년의 심리적 건강과 성장을 전문적으로 지원합니다.
+                도담상담센터는 20~30대 청년의 심리적 건강과 성장을 전문적으로 지원합니다.
                 검증된 상담사와 체계적인 프로그램으로 당신만의 변화를 이끌어냅니다.
               </p>
 
@@ -116,23 +116,22 @@ export default function BrandStory() {
         {/* Left - Image with curtain reveal */}
         <div className="relative h-[40vh] lg:h-auto overflow-hidden">
           <div
-            className="absolute inset-0 bg-cover"
+            className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url('/images/photos/value-counseling-2.jpg')`,
-              backgroundPosition: '65% center',
             }}
           />
-          {/* Sage curtain that slides away to the right */}
+          {/* Beige curtain that slides away to the right */}
           <motion.div
             initial={{ x: '0%' }}
             animate={{ x: section2Visible ? '105%' : '0%' }}
             transition={{ duration: 2.2, ease: [0.32, 0.72, 0, 1] }}
-            className="absolute inset-0 bg-sage-50 z-10"
+            className="absolute inset-0 bg-beige-50 z-10"
           />
         </div>
 
         {/* Right - Text slides in from right */}
-        <div className="flex items-center bg-sage-50 px-6 md:px-16 lg:px-20 py-16 md:py-20 lg:py-0">
+        <div className="flex items-center bg-beige-50 px-6 md:px-16 lg:px-20 py-16 md:py-20 lg:py-0">
           <motion.div
             initial={{ x: 60, opacity: 0 }}
             animate={section2Visible ? { x: 0, opacity: 1 } : { x: 60, opacity: 0 }}
@@ -174,7 +173,7 @@ export default function BrandStory() {
                   transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
                   className="flex gap-5"
                 >
-                  <span className="text-2xl font-light text-sage-300">
+                  <span className="text-2xl font-light text-beige-300">
                     {item.num}
                   </span>
                   <div>

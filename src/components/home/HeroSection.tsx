@@ -1,48 +1,178 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+
+// ── Timing (ms from mount) ──
+const LINES_DONE = 1000;
+const TEXT_IN = 1200;
+const TEXT_OUT = 2800;
+const PHOTO_IN = 3100;
+const EXPAND_W = 3800;
+const EXPAND_H = 5000;
+const OVERLAY_IN = 6200;
+const SUBTITLE_IN = 6800;
+
+// ── Line drawing config ──
+const LINE_DURATION = 0.35;
+const LINE_DELAY = 0.2;
 
 export default function HeroSection() {
+  const [phase, setPhase] = useState(0);
+  const [vw, setVw] = useState(1200);
+  const [vh, setVh] = useState(800);
+
+  // Viewport size
+  useEffect(() => {
+    const update = () => {
+      setVw(window.innerWidth);
+      setVh(window.innerHeight);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  // Auto animation sequence
+  useEffect(() => {
+    const timers = [
+      setTimeout(() => setPhase(1), LINES_DONE),
+      setTimeout(() => setPhase(2), TEXT_IN),
+      setTimeout(() => setPhase(3), TEXT_OUT),
+      setTimeout(() => setPhase(4), EXPAND_W),
+      setTimeout(() => setPhase(5), EXPAND_H),
+      setTimeout(() => setPhase(6), OVERLAY_IN),
+      setTimeout(() => setPhase(7), SUBTITLE_IN),
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  // Responsive frame size
+  const frameW = Math.min(400, vw - 48);
+  const frameH = Math.round(frameW * 0.52);
+
+  // Clip-path inset values (photo is always full-screen, frame is the mask)
+  const topInset = phase >= 5 ? 0 : (vh - frameH) / 2;
+  const bottomInset = phase >= 5 ? 0 : (vh - frameH) / 2;
+  const leftInset = phase >= 4 ? 0 : (vw - frameW) / 2;
+  const rightInset = phase >= 4 ? 0 : (vw - frameW) / 2;
+  const radius = phase >= 4 ? 0 : 12;
+
+  // SVG line paths
+  const hw = frameW / 2;
+  const hh = frameH / 2;
+  const lines = [
+    { d: `M ${-hw} ${-hh} L ${hw} ${-hh}`, delay: 0 },
+    { d: `M ${hw} ${-hh} L ${hw} ${hh}`, delay: LINE_DELAY },
+    { d: `M ${hw} ${hh} L ${-hw} ${hh}`, delay: LINE_DELAY * 2 },
+    { d: `M ${-hw} ${hh} L ${-hw} ${-hh}`, delay: LINE_DELAY * 3 },
+  ];
+
   return (
     <section className="relative h-dvh overflow-hidden bg-dark" data-header-theme="dark">
-      {/* Full-screen photo */}
-      <div className="absolute inset-0 z-[1]">
+      {/* Full-screen photo (always full size, masked by clip-path) */}
+      <motion.div
+        className="absolute inset-0 z-[1]"
+        initial={{
+          clipPath: `inset(50% 50% 50% 50% round 12px)`,
+          opacity: 0,
+        }}
+        animate={{
+          clipPath: `inset(${topInset}px ${rightInset}px ${bottomInset}px ${leftInset}px round ${radius}px)`,
+          opacity: phase >= 3 ? 1 : 0,
+        }}
+        transition={{
+          clipPath: { duration: 1.2, ease: [0.32, 0.72, 0, 1] },
+          opacity: { duration: 0.6 },
+        }}
+      >
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/images/photos/hero-lobby.jpg')` }}
         />
-      </div>
+      </motion.div>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 z-[2]">
+      {/* Dark overlay — left side darker for text readability, right side lighter to show photo */}
+      <motion.div
+        className="absolute inset-0 z-[2]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: phase >= 6 ? 1 : 0 }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
+      >
         <div className="absolute inset-0 bg-gradient-to-r from-dark/80 via-dark/50 to-dark/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/30 via-transparent to-dark/40" />
+      </motion.div>
+
+      {/* SVG Frame lines (only visible before photo) */}
+      <motion.div
+        className="absolute inset-0 z-[3] flex items-center justify-center pointer-events-none"
+        animate={{ opacity: phase >= 3 ? 0 : 1 }}
+        transition={{ duration: 0.4 }}
+      >
+        <svg
+          style={{ width: frameW + 40, height: frameH + 40 }}
+          viewBox={`${-hw - 20} ${-hh - 20} ${frameW + 40} ${frameH + 40}`}
+          fill="none"
+        >
+          {lines.map((line, i) => (
+            <motion.path
+              key={i}
+              d={line.d}
+              stroke="rgba(245,240,235,0.5)"
+              strokeWidth={1}
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{
+                duration: LINE_DURATION,
+                delay: line.delay,
+                ease: 'easeInOut',
+              }}
+            />
+          ))}
+        </svg>
+      </motion.div>
+
+      {/* Text inside frame (phase 2 only) */}
+      <div className="absolute inset-0 z-[4] flex items-center justify-center pointer-events-none">
+        <motion.div
+          className="flex flex-col items-center gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: phase === 2 ? 1 : 0 }}
+          transition={{ duration: phase === 2 ? 0.8 : 0.4 }}
+        >
+          <span className="font-serif text-[11vw] sm:text-[8vw] md:text-[6vw] lg:text-[5vw] font-bold text-beige-100 tracking-[0.05em] leading-none">
+            DODAM
+          </span>
+          <span className="text-[3vw] sm:text-[2.2vw] md:text-[1.4vw] lg:text-[1vw] tracking-[0.35em] text-beige-200 uppercase">
+            Counseling Center
+          </span>
+        </motion.div>
       </div>
 
-      {/* Subtitle */}
+      {/* Subtitle (auto, phase 7) */}
       <motion.div
         className="absolute inset-0 z-[5] flex flex-col justify-center px-6 md:px-16 lg:px-20 pointer-events-none max-w-7xl mx-auto"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        initial={{ opacity: 0, y: 40 }}
+        animate={phase >= 7 ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+        transition={{ duration: 1.0, ease: 'easeOut' }}
       >
         <div className="flex items-stretch gap-6 md:gap-8">
           {/* Decorative vertical line */}
           <motion.div
             className="hidden sm:block w-px bg-gradient-to-b from-transparent via-white/40 to-transparent flex-shrink-0"
             initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
+            animate={phase >= 7 ? { scaleY: 1 } : { scaleY: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
             style={{ originY: 0 }}
           />
 
           <div>
             <span className="text-[11px] md:text-xs tracking-[0.4em] text-white/80 uppercase mb-6 block">
-              Daon Counseling Center
+              Dodam Counseling Center
             </span>
 
             <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight">
-              다온, 성장의
+              도담, 성장의
               <br />
               기반을 세우는 곳
             </h2>
@@ -60,8 +190,8 @@ export default function HeroSection() {
       <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-[6]"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
+        animate={{ opacity: phase >= 7 ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: phase >= 7 ? 0.8 : 0 }}
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
