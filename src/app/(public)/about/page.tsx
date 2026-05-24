@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 };
 
 const milestones = [
-  { date: '2023.03', title: '다온상담센터 설립', description: '청년 심리상담 전문 센터로 출발' },
+  { date: '2023.03', title: '도담상담센터 설립', description: '청년 심리상담 전문 센터로 출발' },
   { date: '2023.06', title: '온라인 상담 시스템 도입', description: '비대면 시대에 맞춘 온라인 상담 플랫폼 구축' },
   { date: '2023.09', title: '성장 프로그램 런칭', description: '자기개발, 퍼스널 브랜딩 프로그램 시작' },
   { date: '2024.01', title: '누적 상담 500건 돌파', description: '청년 상담 분야 신뢰 구축' },
   { date: '2024.05', title: '기업 EAP 서비스 시작', description: '직장인 심리 건강 지원 서비스 확대' },
-  { date: '2024.09', title: '청년 응원 패키지 런칭', description: '청년 심리 건강을 위한 특별 지원 프로그램 시작' },
+  { date: '2024.09', title: '정부지원 사업 파트너 선정', description: '청년 심리 지원 정부사업 공식 파트너' },
   { date: '2025.02', title: '누적 상담 2,000건 돌파', description: '상담사 30명 이상 규모로 성장' },
   { date: '2025.08', title: '그룹 상담 프로그램 확대', description: '감정 다루기, 관계의 기술 등 다양한 워크숍 운영' },
   { date: '2026.01', title: '누적 상담 5,000건 돌파', description: '청년 상담 전문 센터로 자리매김' },
@@ -30,16 +30,16 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-sage-50">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-beige-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl">
               <span className="text-sm tracking-[0.2em] uppercase font-medium text-accent">About Us</span>
               <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
-                다온상담센터를<br />소개합니다
+                도담상담센터를<br />소개합니다
               </h1>
               <p className="mt-6 text-lg md:text-xl text-black-light leading-relaxed">
-                다온상담센터는 &apos;다온다온&apos;이라는 순우리말에서 이름을 따왔습니다.
+                도담상담센터는 &apos;도담도담&apos;이라는 순우리말에서 이름을 따왔습니다.
                 아이가 탈 없이 잘 자라는 모양을 뜻하는 이 단어처럼,
                 우리는 청년들이 건강하게 성장할 수 있도록 돕습니다.
               </p>
@@ -71,7 +71,7 @@ export default function AboutPage() {
                 자신만의 길을 찾아가는 것은 결코 쉬운 일이 아닙니다.
               </p>
               <p className="mt-4 text-black-light leading-relaxed">
-                다온상담센터는 단순히 문제를 해결하는 것을 넘어,
+                도담상담센터는 단순히 문제를 해결하는 것을 넘어,
                 청년들이 자신의 가능성을 발견하고 삶을 주도적으로 설계할 수 있도록
                 전문적인 심리 상담과 성장 프로그램을 제공합니다.
               </p>
@@ -81,12 +81,12 @@ export default function AboutPage() {
       </section>
 
       {/* History */}
-      <section className="py-24 md:py-32 bg-sage-50">
+      <section className="py-24 md:py-32 bg-beige-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
               <span className="text-sm tracking-[0.2em] uppercase font-medium text-accent">History</span>
-              <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-black">다온상담센터의 발자취</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-black">도담상담센터의 발자취</h2>
             </div>
           </AnimatedSection>
 
@@ -99,7 +99,7 @@ export default function AboutPage() {
                       {item.date.slice(2)}
                     </div>
                     {index < milestones.length - 1 && (
-                      <div className="w-px h-full bg-sage-200 mt-2" />
+                      <div className="w-px h-full bg-beige-200 mt-2" />
                     )}
                   </div>
                   <div className="pb-10">
@@ -130,7 +130,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((item, index) => (
               <AnimatedSection key={item.role} delay={index * 0.1}>
-                <div className="bg-sage-50 rounded-2xl p-8 text-center">
+                <div className="bg-beige-50 rounded-2xl p-8 text-center">
                   <div className="text-4xl font-bold text-accent mb-2">{item.count}명</div>
                   <h3 className="text-lg font-semibold text-black mb-2">{item.role}</h3>
                   <p className="text-sm text-black-light">{item.description}</p>

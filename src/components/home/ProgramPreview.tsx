@@ -33,8 +33,8 @@ const programs = [
   {
     title: '마음 챙김 워크숍',
     category: '웰니스',
-    image: '/images/photos/seminar-18.jpg',
-    imagePosition: '30% center',
+    image: '/images/photos/seminar-10.jpg',
+    imagePosition: '25% center',
     description: '명상과 마음챙김을 통한 스트레스 관리 프로그램',
     details: '매주 수요일 · 상시 운영',
     href: '/programs',
@@ -72,7 +72,7 @@ export default function ProgramPreview() {
   }, [navigate]);
 
   return (
-    <section className="bg-sage-50 relative overflow-hidden">
+    <section className="bg-beige-50 relative overflow-hidden">
       {/* Background marquee text (very subtle) */}
       <div className="absolute inset-0 flex items-center pointer-events-none overflow-hidden opacity-[0.04]">
         <div
@@ -118,7 +118,7 @@ export default function ProgramPreview() {
             <button
               onClick={() => navigate('left')}
               disabled={activeIndex === 0}
-              className="w-12 h-12 rounded-full border border-sage-300 flex items-center justify-center hover:bg-dark hover:text-white transition-colors duration-300 disabled:opacity-30 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-current"
+              className="w-12 h-12 rounded-full border border-beige-300 flex items-center justify-center hover:bg-dark hover:text-white transition-colors duration-300 disabled:opacity-30 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-current"
               aria-label="이전 슬라이드"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -128,7 +128,7 @@ export default function ProgramPreview() {
             <button
               onClick={() => navigate('right')}
               disabled={activeIndex === programs.length - 1}
-              className="w-12 h-12 rounded-full border border-sage-300 flex items-center justify-center hover:bg-dark hover:text-white transition-colors duration-300 disabled:opacity-30 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-current"
+              className="w-12 h-12 rounded-full border border-beige-300 flex items-center justify-center hover:bg-dark hover:text-white transition-colors duration-300 disabled:opacity-30 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-current"
               aria-label="다음 슬라이드"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -255,7 +255,7 @@ export default function ProgramPreview() {
               className={`h-2 rounded-full transition-all duration-300 ${
                 index === activeIndex
                   ? 'bg-accent w-6'
-                  : 'bg-sage-300 w-2 hover:bg-sage-400'
+                  : 'bg-beige-300 w-2 hover:bg-beige-400'
               }`}
               aria-label={`프로그램 ${index + 1}`}
             />
