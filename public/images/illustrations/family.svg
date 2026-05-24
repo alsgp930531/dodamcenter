@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FBF9F7"/>
+  <!-- Family members - parent 1 -->
+  <circle cx="140" cy="120" r="24" fill="#8B7355" opacity="0.3"/>
+  <path d="M120 148 C120 148, 116 195, 120 215 L160 215 C164 195, 160 148, 160 148" fill="#8B7355" opacity="0.2"/>
+  <!-- Parent 2 -->
+  <circle cx="260" cy="120" r="24" fill="#8B7355" opacity="0.25"/>
+  <path d="M240 148 C240 148, 236 195, 240 215 L280 215 C284 195, 280 148, 280 148" fill="#8B7355" opacity="0.18"/>
+  <!-- Child -->
+  <circle cx="200" cy="150" r="18" fill="#D4A574" opacity="0.35"/>
+  <path d="M186 170 C186 170, 184 200, 186 215 L214 215 C216 200, 214 170, 214 170" fill="#D4A574" opacity="0.2"/>
+  <!-- Connecting arms / embrace -->
+  <path d="M160 170 Q180 160, 186 170" stroke="#8B7355" stroke-width="3" opacity="0.2" fill="none"/>
+  <path d="M240 170 Q220 160, 214 170" stroke="#8B7355" stroke-width="3" opacity="0.2" fill="none"/>
+  <!-- House outline -->
+  <path d="M100 260 L200 200 L300 260" stroke="#8B7355" stroke-width="2.5" opacity="0.15" fill="none"/>
+  <rect x="130" y="260" width="140" height="5" rx="2.5" fill="#8B7355" opacity="0.1"/>
+  <!-- Warm glow -->
+  <circle cx="200" cy="180" r="60" fill="#D4A574" opacity="0.06"/>
+  <!-- Label -->
+  <text x="200" y="340" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="600" fill="#8B7355" opacity="0.6">가족의 이해</text>
+</svg>

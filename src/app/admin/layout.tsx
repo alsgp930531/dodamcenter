@@ -25,13 +25,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   };
 
   return (
-    <div className="min-h-screen bg-beige-50">
+    <div className="min-h-screen bg-sage-50">
       {/* Top Bar */}
-      <header className="bg-white border-b border-beige-200 sticky top-0 z-40">
+      <header className="bg-white border-b border-sage-200 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
           <div className="flex items-center gap-6">
             <Link href="/admin" className="text-lg font-bold text-black">
-              도담상담센터 <span className="text-accent text-sm font-normal">Admin</span>
+              다온상담센터 <span className="text-accent text-sm font-normal">Admin</span>
             </Link>
             <nav className="hidden md:flex items-center gap-1">
               {adminNav.map((item) => (
@@ -41,7 +41,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   className={`px-3 py-2 text-sm rounded-lg transition-colors ${
                     pathname === item.href
                       ? 'bg-accent text-white'
-                      : 'text-black-light hover:bg-beige-100'
+                      : 'text-black-light hover:bg-sage-100'
                   }`}
                 >
                   <span className="mr-1.5">{item.icon}</span>
@@ -65,7 +65,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </header>
 
       {/* Mobile Nav */}
-      <nav className="md:hidden bg-white border-b border-beige-200 px-4 py-2 flex gap-1 overflow-x-auto">
+      <nav className="md:hidden bg-white border-b border-sage-200 px-4 py-2 flex gap-1 overflow-x-auto">
         {adminNav.map((item) => (
           <Link
             key={item.href}
@@ -73,7 +73,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             className={`px-3 py-2 text-xs rounded-lg whitespace-nowrap transition-colors ${
               pathname === item.href
                 ? 'bg-accent text-white'
-                : 'text-black-light hover:bg-beige-100'
+                : 'text-black-light hover:bg-sage-100'
             }`}
           >
             <span className="mr-1">{item.icon}</span>

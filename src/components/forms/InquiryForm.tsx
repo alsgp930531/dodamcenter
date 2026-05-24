@@ -58,7 +58,7 @@ function formatPhone(value: string) {
 }
 
 const inputClass =
-  'w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black placeholder-beige-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors';
+  'w-full px-4 py-3 rounded-xl border border-sage-200 bg-white text-black placeholder-sage-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors';
 
 export default function InquiryForm() {
   const [formData, setFormData] = useState({

@@ -64,7 +64,7 @@ export default function CounselingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-beige-50">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl">
@@ -95,7 +95,7 @@ export default function CounselingPage() {
       </section>
 
       {/* Pricing Table */}
-      <section className="py-24 md:py-32 bg-white border-t border-beige-200">
+      <section className="py-24 md:py-32 bg-white border-t border-sage-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">

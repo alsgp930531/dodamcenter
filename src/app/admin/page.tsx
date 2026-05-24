@@ -49,7 +49,7 @@ export default function AdminDashboard() {
     <div>
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-black">대시보드</h1>
-        <p className="text-black-light mt-1">도담상담센터 관리자 페이지에 오신 것을 환영합니다.</p>
+        <p className="text-black-light mt-1">다온상담센터 관리자 페이지에 오신 것을 환영합니다.</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -57,7 +57,7 @@ export default function AdminDashboard() {
           <Link
             key={card.label}
             href={card.href}
-            className="bg-white rounded-xl border border-beige-200 p-6 hover:shadow-md transition-shadow"
+            className="bg-white rounded-xl border border-sage-200 p-6 hover:shadow-md transition-shadow"
           >
             <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg ${card.color} text-sm font-bold mb-3`}>
               {card.value}
@@ -68,16 +68,16 @@ export default function AdminDashboard() {
         ))}
       </div>
 
-      <div className="bg-white rounded-xl border border-beige-200 p-6">
+      <div className="bg-white rounded-xl border border-sage-200 p-6">
         <h2 className="font-semibold text-black mb-4">빠른 작업</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <Link href="/admin/inquiries" className="px-4 py-3 bg-beige-50 rounded-lg text-sm text-center hover:bg-beige-100 transition-colors">
+          <Link href="/admin/inquiries" className="px-4 py-3 bg-sage-50 rounded-lg text-sm text-center hover:bg-sage-100 transition-colors">
             문의 확인하기
           </Link>
-          <Link href="/admin/reviews" className="px-4 py-3 bg-beige-50 rounded-lg text-sm text-center hover:bg-beige-100 transition-colors">
+          <Link href="/admin/reviews" className="px-4 py-3 bg-sage-50 rounded-lg text-sm text-center hover:bg-sage-100 transition-colors">
             후기 등록하기
           </Link>
-          <Link href="/admin/counselors" className="px-4 py-3 bg-beige-50 rounded-lg text-sm text-center hover:bg-beige-100 transition-colors">
+          <Link href="/admin/counselors" className="px-4 py-3 bg-sage-50 rounded-lg text-sm text-center hover:bg-sage-100 transition-colors">
             상담사 관리
           </Link>
         </div>

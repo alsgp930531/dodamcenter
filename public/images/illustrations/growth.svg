@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FBF9F7"/>
+  <!-- Growing plant / seedling -->
+  <rect x="196" y="180" width="8" height="80" rx="4" fill="#8B7355" opacity="0.3"/>
+  <!-- Leaves -->
+  <path d="M200 200 Q230 180, 240 160 Q220 170, 200 200Z" fill="#8B7355" opacity="0.2"/>
+  <path d="M200 220 Q170 200, 155 175 Q175 190, 200 220Z" fill="#8B7355" opacity="0.25"/>
+  <path d="M200 180 Q220 155, 235 140 Q215 155, 200 180Z" fill="#D4A574" opacity="0.25"/>
+  <!-- Sun -->
+  <circle cx="200" cy="100" r="25" fill="#D4A574" opacity="0.2"/>
+  <circle cx="200" cy="100" r="15" fill="#D4A574" opacity="0.3"/>
+  <!-- Sun rays -->
+  <line x1="200" y1="65" x2="200" y2="55" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round" opacity="0.2"/>
+  <line x1="225" y1="75" x2="232" y2="68" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round" opacity="0.2"/>
+  <line x1="235" y1="100" x2="245" y2="100" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round" opacity="0.2"/>
+  <line x1="175" y1="75" x2="168" y2="68" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round" opacity="0.2"/>
+  <line x1="165" y1="100" x2="155" y2="100" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round" opacity="0.2"/>
+  <!-- Ground -->
+  <path d="M100 260 Q200 250, 300 260" stroke="#8B7355" stroke-width="2" opacity="0.15" fill="none"/>
+  <ellipse cx="200" cy="262" rx="60" ry="8" fill="#8B7355" opacity="0.08"/>
+  <!-- Steps / stairs going up -->
+  <rect x="280" y="240" width="30" height="8" rx="2" fill="#8B7355" opacity="0.1"/>
+  <rect x="290" y="225" width="30" height="8" rx="2" fill="#8B7355" opacity="0.12"/>
+  <rect x="300" y="210" width="30" height="8" rx="2" fill="#8B7355" opacity="0.14"/>
+  <!-- Arrow up -->
+  <path d="M315 205 L315 185 M308 192 L315 185 L322 192" stroke="#8B7355" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+  <!-- Label -->
+  <text x="200" y="340" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="600" fill="#8B7355" opacity="0.6">성장의 여정</text>
+</svg>

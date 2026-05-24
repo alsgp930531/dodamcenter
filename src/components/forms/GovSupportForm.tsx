@@ -32,7 +32,7 @@ function formatPhone(value: string) {
 }
 
 const inputClass =
-  'w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black placeholder-beige-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors';
+  'w-full px-4 py-3 rounded-xl border border-sage-200 bg-white text-black placeholder-sage-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors';
 
 export default function GovSupportForm() {
   const [formData, setFormData] = useState({
@@ -181,7 +181,7 @@ export default function GovSupportForm() {
                 className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border cursor-pointer transition-all text-sm ${
                   formData.concerns.includes(concern)
                     ? 'border-accent bg-accent/5 text-accent'
-                    : 'border-beige-200 bg-white text-black-light hover:border-accent/30'
+                    : 'border-sage-200 bg-white text-black-light hover:border-accent/30'
                 }`}
               >
                 <input
@@ -193,7 +193,7 @@ export default function GovSupportForm() {
                 <span className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 ${
                   formData.concerns.includes(concern)
                     ? 'border-accent bg-accent'
-                    : 'border-beige-200'
+                    : 'border-sage-200'
                 }`}>
                   {formData.concerns.includes(concern) && (
                     <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>

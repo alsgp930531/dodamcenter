@@ -26,7 +26,7 @@ export default function MarqueeSection() {
       </div>
 
       {/* Marquee text strip */}
-      <div className="py-6 md:py-10 bg-white overflow-hidden border-y border-beige-100">
+      <div className="py-6 md:py-10 bg-white overflow-hidden border-y border-sage-100">
         <div
           className="animate-marquee flex whitespace-nowrap"
           style={{ '--marquee-duration': '18s' } as React.CSSProperties}
@@ -37,9 +37,9 @@ export default function MarqueeSection() {
               className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl font-bold text-black tracking-tight mx-4 sm:mx-6 md:mx-10 select-none"
             >
               YOUTH GROWTH PROJECT
-              <span className="mx-4 sm:mx-6 md:mx-10 text-beige-200 font-light">/</span>
+              <span className="mx-4 sm:mx-6 md:mx-10 text-sage-200 font-light">/</span>
               마음 성장 전문 상담
-              <span className="mx-4 sm:mx-6 md:mx-10 text-beige-200 font-light">/</span>
+              <span className="mx-4 sm:mx-6 md:mx-10 text-sage-200 font-light">/</span>
             </span>
           ))}
         </div>

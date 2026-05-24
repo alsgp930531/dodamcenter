@@ -10,7 +10,7 @@ export default function ContactFormSection() {
   const [activeForm, setActiveForm] = useState<FormType>('general');
 
   return (
-    <div className="bg-beige-50 rounded-2xl p-5 sm:p-8 md:p-10">
+    <div className="bg-sage-50 rounded-2xl p-5 sm:p-8 md:p-10">
       {/* Toggle Buttons */}
       <div className="flex gap-2 sm:gap-3 mb-8">
         <button
@@ -18,7 +18,7 @@ export default function ContactFormSection() {
           className={`flex-1 py-3 px-3 sm:px-4 rounded-full text-xs sm:text-sm md:text-base font-medium transition-all duration-300 cursor-pointer ${
             activeForm === 'general'
               ? 'bg-accent text-white shadow-md'
-              : 'bg-white text-black-light border border-beige-200 hover:border-accent/30'
+              : 'bg-white text-black-light border border-sage-200 hover:border-accent/30'
           }`}
         >
           일반 상담 신청
@@ -28,7 +28,7 @@ export default function ContactFormSection() {
           className={`flex-1 py-3 px-3 sm:px-4 rounded-full text-xs sm:text-sm md:text-base font-medium transition-all duration-300 cursor-pointer break-keep ${
             activeForm === 'gov'
               ? 'bg-accent text-white shadow-md'
-              : 'bg-white text-black-light border border-beige-200 hover:border-accent/30'
+              : 'bg-white text-black-light border border-sage-200 hover:border-accent/30'
           }`}
         >
           청년 응원 패키지
@@ -38,7 +38,7 @@ export default function ContactFormSection() {
       {/* Form Description */}
       <div className="mb-8">
         <h2 className="text-2xl font-semibold text-black mb-2">
-          {activeForm === 'general' ? '상담 신청' : '도담 청년 응원 패키지'}
+          {activeForm === 'general' ? '상담 신청' : '다온 청년 응원 패키지'}
         </h2>
         <p className="text-black-light">
           {activeForm === 'general'

@@ -82,7 +82,7 @@ export default function PhoneBookingForm() {
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black placeholder-beige-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+            className="w-full px-4 py-3 rounded-xl border border-sage-200 bg-white text-black placeholder-sage-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
             placeholder="홍길동"
           />
         </div>
@@ -96,7 +96,7 @@ export default function PhoneBookingForm() {
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: formatPhone(e.target.value) })}
-            className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black placeholder-beige-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+            className="w-full px-4 py-3 rounded-xl border border-sage-200 bg-white text-black placeholder-sage-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
             placeholder="010-1234-5678"
             inputMode="numeric"
           />
@@ -115,7 +115,7 @@ export default function PhoneBookingForm() {
             min={today}
             value={formData.preferredDate}
             onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+            className="w-full px-4 py-3 rounded-xl border border-sage-200 bg-white text-black focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
           />
         </div>
         <div>
@@ -127,7 +127,7 @@ export default function PhoneBookingForm() {
             required
             value={formData.preferredTime}
             onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+            className="w-full px-4 py-3 rounded-xl border border-sage-200 bg-white text-black focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
           >
             <option value="">선택해주세요</option>
             {timeSlots.map((time) => (
@@ -146,7 +146,7 @@ export default function PhoneBookingForm() {
           rows={3}
           value={formData.note}
           onChange={(e) => setFormData({ ...formData, note: e.target.value })}
-          className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black placeholder-beige-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors resize-none"
+          className="w-full px-4 py-3 rounded-xl border border-sage-200 bg-white text-black placeholder-sage-300 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors resize-none"
           placeholder="간단한 메모를 남겨주세요."
         />
       </div>

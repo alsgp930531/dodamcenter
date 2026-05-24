@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const ADMIN_EMAIL = 'admin@dodamcenter.kr';
-const ADMIN_PASSWORD = 'dodam2025!';
+const ADMIN_EMAIL = 'admin@daoncenter.kr';
+const ADMIN_PASSWORD = 'daon2025!';
 
 export async function POST(request: NextRequest) {
   const body = await request.json();

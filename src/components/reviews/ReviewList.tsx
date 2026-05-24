@@ -33,7 +33,7 @@ export default function ReviewList({ reviews }: ReviewListProps) {
           <button
             onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
             disabled={currentPage === 1}
-            className="px-4 py-2 text-sm rounded-full border border-beige-200 text-black-light hover:bg-beige-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            className="px-4 py-2 text-sm rounded-full border border-sage-200 text-black-light hover:bg-sage-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
           >
             이전
           </button>
@@ -44,7 +44,7 @@ export default function ReviewList({ reviews }: ReviewListProps) {
               className={`w-10 h-10 text-sm rounded-full transition-colors ${
                 currentPage === i + 1
                   ? 'bg-accent text-white'
-                  : 'text-black-light hover:bg-beige-50 border border-beige-200'
+                  : 'text-black-light hover:bg-sage-50 border border-sage-200'
               }`}
             >
               {i + 1}
@@ -53,7 +53,7 @@ export default function ReviewList({ reviews }: ReviewListProps) {
           <button
             onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 text-sm rounded-full border border-beige-200 text-black-light hover:bg-beige-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            className="px-4 py-2 text-sm rounded-full border border-sage-200 text-black-light hover:bg-sage-50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
           >
             다음
           </button>

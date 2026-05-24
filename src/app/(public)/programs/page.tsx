@@ -12,7 +12,7 @@ export default function ProgramsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-beige-50">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl">
@@ -39,7 +39,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32 bg-beige-50">
+      <section className="py-24 md:py-32 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center max-w-2xl mx-auto">

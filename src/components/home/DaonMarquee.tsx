@@ -1,8 +1,8 @@
 'use client';
 
-export default function DodamMarquee() {
+export default function DaonMarquee() {
   return (
-    <div className="py-6 md:py-8 bg-white overflow-hidden border-b border-beige-100">
+    <div className="py-6 md:py-8 bg-white overflow-hidden border-b border-sage-100">
       <div
         className="animate-marquee flex whitespace-nowrap items-center"
         style={{ '--marquee-duration': '22s' } as React.CSSProperties}
@@ -10,10 +10,10 @@ export default function DodamMarquee() {
         {Array.from({ length: 14 }).map((_, i) => (
           <span
             key={i}
-            className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl italic mx-6 sm:mx-10 md:mx-16 select-none text-beige-200 tracking-wide"
+            className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl italic mx-6 sm:mx-10 md:mx-16 select-none text-sage-200 tracking-wide"
             style={{ fontFamily: 'var(--font-script)' }}
           >
-            dodam counseling center
+            daon counseling center
           </span>
         ))}
       </div>

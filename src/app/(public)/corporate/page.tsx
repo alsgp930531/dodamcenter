@@ -72,7 +72,7 @@ export default function CorporatePage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-beige-50">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl">
@@ -102,7 +102,7 @@ export default function CorporatePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <AnimatedSection key={service.title} delay={index * 0.1}>
-                <div className="bg-beige-50 rounded-2xl p-5 sm:p-6 md:p-8 h-full">
+                <div className="bg-sage-50 rounded-2xl p-5 sm:p-6 md:p-8 h-full">
                   <div className="w-14 h-14 rounded-xl bg-white text-accent flex items-center justify-center mb-6">
                     {service.icon}
                   </div>
@@ -116,7 +116,7 @@ export default function CorporatePage() {
       </section>
 
       {/* Plans */}
-      <section className="py-24 md:py-32 bg-beige-50">
+      <section className="py-24 md:py-32 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -129,7 +129,7 @@ export default function CorporatePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
               <AnimatedSection key={plan.name} delay={index * 0.15}>
-                <div className="group/card relative rounded-2xl p-5 sm:p-6 md:p-8 h-full flex flex-col transition-all duration-300 bg-white border border-beige-200 hover:bg-dark hover:ring-2 hover:ring-accent">
+                <div className="group/card relative rounded-2xl p-5 sm:p-6 md:p-8 h-full flex flex-col transition-all duration-300 bg-white border border-sage-200 hover:bg-dark hover:ring-2 hover:ring-accent">
                   {plan.popular && (
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-4 py-1.5 rounded-full">
                       인기

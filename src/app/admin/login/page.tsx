@@ -37,14 +37,14 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-beige-50 px-6">
+    <div className="min-h-screen flex items-center justify-center bg-sage-50 px-6">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-black">도담상담센터 관리자</h1>
+          <h1 className="text-2xl font-bold text-black">다온상담센터 관리자</h1>
           <p className="text-black-light mt-2">관리자 계정으로 로그인하세요.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-sm border border-beige-200">
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-sm border border-sage-200">
           {error && (
             <div className="mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg">
               {error}
@@ -59,8 +59,8 @@ export default function AdminLoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
-              placeholder="admin@dodamcenter.kr"
+              className="w-full px-4 py-3 rounded-xl border border-sage-200 bg-white text-black focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+              placeholder="admin@daoncenter.kr"
             />
           </div>
 
@@ -72,7 +72,7 @@ export default function AdminLoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-beige-200 bg-white text-black focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
+              className="w-full px-4 py-3 rounded-xl border border-sage-200 bg-white text-black focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
               placeholder="••••••••"
             />
           </div>

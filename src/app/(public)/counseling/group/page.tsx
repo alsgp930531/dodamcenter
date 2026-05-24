@@ -71,7 +71,7 @@ export default function GroupCounselingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-beige-50">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl">
@@ -113,7 +113,7 @@ export default function GroupCounselingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
               <AnimatedSection key={feature.title} delay={index * 0.1}>
-                <div className="bg-beige-50 rounded-2xl p-8 h-full">
+                <div className="bg-sage-50 rounded-2xl p-8 h-full">
                   <div className="w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center text-sm font-bold mb-4">
                     {String(index + 1).padStart(2, '0')}
                   </div>
@@ -127,7 +127,7 @@ export default function GroupCounselingPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 md:py-32 bg-beige-50">
+      <section className="py-24 md:py-32 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -151,7 +151,7 @@ export default function GroupCounselingPage() {
                     {item.step}
                   </div>
                   {index < process.length - 1 && (
-                    <div className="hidden md:block absolute top-8 left-[calc(50%+40px)] w-[calc(100%-80px)] h-px bg-beige-200" />
+                    <div className="hidden md:block absolute top-8 left-[calc(50%+40px)] w-[calc(100%-80px)] h-px bg-sage-200" />
                   )}
                   <h3 className="text-lg font-semibold text-black mb-3">{item.title}</h3>
                   <p className="text-sm text-black-light leading-relaxed">{item.description}</p>
@@ -193,7 +193,7 @@ export default function GroupCounselingPage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-24 md:py-32 bg-beige-50">
+      <section className="py-24 md:py-32 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-2xl mx-auto text-center">
@@ -208,7 +208,7 @@ export default function GroupCounselingPage() {
                   50,000<span className="text-xl sm:text-2xl md:text-3xl font-medium">원</span>
                 </div>
                 <div className="mt-3 text-lg text-black-light group-hover/price:text-white/70 transition-colors duration-300">1회 / 120분 (1인 기준)</div>
-                <div className="mt-6 w-full h-px bg-beige-200 group-hover/price:bg-white/20 transition-colors duration-300" />
+                <div className="mt-6 w-full h-px bg-sage-200 group-hover/price:bg-white/20 transition-colors duration-300" />
                 <ul className="mt-6 space-y-3 text-left">
                   <li className="flex items-center gap-3 text-black-light group-hover/price:text-white/80 transition-colors duration-300">
                     <svg className="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -254,7 +254,7 @@ export default function GroupCounselingPage() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight">
                 함께일 때<br />더 큰 성장이 가능합니다
               </h2>
-              <p className="mt-6 text-lg text-beige-200 max-w-xl mx-auto">
+              <p className="mt-6 text-lg text-sage-200 max-w-xl mx-auto">
                 그룹상담에 대해 궁금한 점이 있으시면 편하게 문의해 주세요.
                 현재 모집 중인 프로그램을 안내해 드리겠습니다.
               </p>
@@ -262,7 +262,7 @@ export default function GroupCounselingPage() {
                 <Button href="/contact" size="lg">
                   상담 문의하기
                 </Button>
-                <Button href="/counseling" variant="custom" size="lg" className="border border-beige-200 text-beige-200 hover:bg-beige-200 hover:text-black">
+                <Button href="/counseling" variant="custom" size="lg" className="border border-sage-200 text-sage-200 hover:bg-sage-200 hover:text-black">
                   전체 상담 보기
                 </Button>
               </div>

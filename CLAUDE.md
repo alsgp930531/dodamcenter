@@ -1,7 +1,7 @@
-# 도담센터 - Claude Code 프로젝트 규칙
+# 다온센터 - Claude Code 프로젝트 규칙
 
 ## 프로젝트 개요
-- **프로젝트명**: 도담센터 (심리상담 전문센터 웹사이트)
+- **프로젝트명**: 다온센터 (심리상담 전문센터 웹사이트)
 - **목적**: 센터 소개 + 상담 예약
 - **타겟**: 심리상담이 필요한 성인 고객
 - **디자인 톤**: 깔끔하고 전문적인 (미니멀, 신뢰감)
@@ -56,15 +56,15 @@ src/
 - 반응형: **모바일 퍼스트** (`md:`, `lg:` 순서)
 - 컨테이너: `max-w-7xl mx-auto px-6 lg:px-8`
 - 섹션 패딩: `py-24 md:py-32`
-- 카드: `bg-white rounded-2xl border border-beige-200 p-6 md:p-8`
+- 카드: `bg-white rounded-2xl border border-sage-200 p-6 md:p-8`
 - 버튼: `rounded-full` (pill 형태)
 - 트랜지션: `transition-all duration-300`
 
 ### 디자인 시스템 (색상)
-- 배경: `beige-50`(#FBF9F7), `beige-100`(#F5F0EB), `white`
+- 배경: `sage-50`(#F6F8F4), `sage-100`(#ECF0E8), `white`
 - 텍스트: `black`(#1A1A1A), `black-light`(#333333)
-- 강조: `accent`(#8B7355 따뜻한 브라운), `accent-hover`(#7A6448)
-- 보더: `beige-200`(#E8DFD5)
+- 강조: `accent`(#6B8E5E 세이지 그린), `accent-hover`(#5A7B4E)
+- 보더: `sage-200`(#D5DDC9)
 
 ### 애니메이션
 - Framer Motion 사용, `AnimatedSection` 컴포넌트로 스크롤 트리거 애니메이션

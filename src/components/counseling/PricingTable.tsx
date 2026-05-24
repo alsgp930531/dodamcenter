@@ -7,7 +7,7 @@ export default function PricingTable() {
       {/* Mobile: Card Layout */}
       <div className="md:hidden space-y-4">
         {COUNSELING_TYPES.map((type) => (
-          <div key={type.key} className="group/card bg-white rounded-2xl border border-beige-200 p-5 transition-all duration-300 hover:bg-dark hover:ring-2 hover:ring-accent">
+          <div key={type.key} className="group/card bg-white rounded-2xl border border-sage-200 p-5 transition-all duration-300 hover:bg-dark hover:ring-2 hover:ring-accent">
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-semibold text-black group-hover/card:text-white transition-colors duration-300">{type.label}</h3>
               <span className="text-sm text-black-light group-hover/card:text-white/70 transition-colors duration-300">{type.duration}</span>
@@ -25,7 +25,7 @@ export default function PricingTable() {
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full min-w-[600px]">
           <thead>
-            <tr className="border-b-2 border-beige-300">
+            <tr className="border-b-2 border-sage-300">
               <th className="text-left py-4 px-4 text-sm font-semibold text-black-light uppercase tracking-wider">상담 유형</th>
               <th className="text-left py-4 px-4 text-sm font-semibold text-black-light uppercase tracking-wider">설명</th>
               <th className="text-center py-4 px-4 text-sm font-semibold text-black-light uppercase tracking-wider">시간</th>
@@ -35,7 +35,7 @@ export default function PricingTable() {
           </thead>
           <tbody>
             {COUNSELING_TYPES.map((type) => (
-              <tr key={type.key} className="group/row border-b border-beige-200 transition-all duration-300 hover:bg-dark">
+              <tr key={type.key} className="group/row border-b border-sage-200 transition-all duration-300 hover:bg-dark">
                 <td className="py-5 px-4 font-semibold text-black group-hover/row:text-white transition-colors duration-300 rounded-l-xl">{type.label}</td>
                 <td className="py-5 px-4 text-sm text-black-light group-hover/row:text-white/70 transition-colors duration-300">{type.description}</td>
                 <td className="py-5 px-4 text-sm text-center text-black-light group-hover/row:text-white/70 transition-colors duration-300">{type.duration}</td>

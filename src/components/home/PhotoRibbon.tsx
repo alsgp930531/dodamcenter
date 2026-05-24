@@ -5,16 +5,16 @@ import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const photos = [
-  { src: '/images/photos/seminar-1.jpg', position: 'center' },
-  { src: '/images/photos/seminar-2.jpg', position: '85% center' },
-  { src: '/images/photos/seminar-3.jpg', position: 'center' },
-  { src: '/images/photos/seminar-4.jpg', position: 'center' },
-  { src: '/images/photos/seminar-5.jpg', position: '60% center' },
-  { src: '/images/photos/seminar-6.jpg', position: '70% center' },
-  { src: '/images/photos/seminar-7.jpg', position: 'center' },
-  { src: '/images/photos/seminar-8.jpg', position: 'right center' },
-  { src: '/images/photos/seminar-9.jpg', position: '65% center' },
-  { src: '/images/photos/seminar-10.jpg', position: 'center' },
+  { src: '/images/photos/seminar-1.jpg', position: 'center', label: 'AI 세미나' },
+  { src: '/images/photos/seminar-2.jpg', position: '85% center', label: '퍼스널 브랜딩' },
+  { src: '/images/photos/seminar-3.jpg', position: 'center', label: '스트레스 관리법' },
+  { src: '/images/photos/seminar-4.jpg', position: 'center', label: '자기이해 워크숍' },
+  { src: '/images/photos/seminar-5.jpg', position: '60% center', label: '감정 코칭' },
+  { src: '/images/photos/seminar-6.jpg', position: '70% center', label: '관계의 기술' },
+  { src: '/images/photos/seminar-7.jpg', position: 'center', label: '커뮤니케이션 스킬' },
+  { src: '/images/photos/seminar-8.jpg', position: 'right center', label: '마인드셋' },
+  { src: '/images/photos/seminar-9.jpg', position: '65% center', label: '나를 알아가는 여행' },
+  { src: '/images/photos/seminar-18.jpg', position: '30% center', label: '감정 다루기 워크숍' },
 ];
 
 const COUNT = photos.length;
@@ -30,7 +30,7 @@ const WAVE_FREQ = 1.5;
 const NUM_PTS = 200;
 const RIBBON_COLOR = { r: 245, g: 242, b: 237 };
 const SHADOW_COLOR = { r: 0, g: 0, b: 0 };
-const TEXT_LABEL = 'DODAM COUNSELING CENTER · ';
+const TEXT_LABEL = 'DAON COUNSELING CENTER · ';
 const CHAR_ANGLE_VAL = 0.022; // radians per character (letter spacing)
 const TEXT_COUNT = Math.min(
   Math.ceil((Math.PI * 2) / (CHAR_ANGLE_VAL * TEXT_LABEL.length)),
@@ -379,6 +379,9 @@ export default function PhotoRibbon() {
                     backgroundPosition: photo.position,
                   }}
                 />
+                <div className="absolute bottom-3 left-3 bg-dark/60 backdrop-blur-sm text-white text-[10px] sm:text-xs font-medium px-2.5 py-1 rounded-full tracking-wider">
+                  {photo.label}
+                </div>
               </div>
             ))}
           </motion.div>

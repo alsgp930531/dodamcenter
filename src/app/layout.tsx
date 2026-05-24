@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
-  keywords: ['심리상담', '청년상담', '온라인상담', '무료심리상담', '청년무료상담', '개인상담', '커플상담', '가족상담', '자기성장', '퍼스널브랜딩', '도담상담센터', '도담센터', '20대상담', '30대상담', '심리검사', '기업EAP'],
+  keywords: ['심리상담', '청년상담', '온라인상담', '무료심리상담', '청년무료상담', '개인상담', '커플상담', '가족상담', '자기성장', '퍼스널브랜딩', '다온상담센터', '다온센터', '20대상담', '30대상담', '심리검사', '기업EAP'],
   authors: [{ name: SITE_CONFIG.name }],
   icons: {
     icon: '/favicon.ico',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: '도담상담센터 - 청년 심리상담 전문',
+        alt: '다온상담센터 - 청년 심리상담 전문',
       },
     ],
   },

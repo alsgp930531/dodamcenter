@@ -29,17 +29,17 @@ export default function AdminCounselorsPage() {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full max-w-md px-4 py-2.5 rounded-lg border border-beige-200 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30"
+          className="w-full max-w-md px-4 py-2.5 rounded-lg border border-sage-200 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30"
           placeholder="이름, 자격증, 전문분야로 검색..."
         />
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-xl border border-beige-200 overflow-hidden">
+      <div className="bg-white rounded-xl border border-sage-200 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full min-w-[800px]">
             <thead>
-              <tr className="border-b border-beige-200 bg-beige-50">
+              <tr className="border-b border-sage-200 bg-sage-50">
                 <th className="text-left py-3 px-4 text-xs font-semibold text-black-light uppercase">#</th>
                 <th className="text-left py-3 px-4 text-xs font-semibold text-black-light uppercase">이름</th>
                 <th className="text-left py-3 px-4 text-xs font-semibold text-black-light uppercase">자격증</th>
@@ -50,15 +50,15 @@ export default function AdminCounselorsPage() {
             </thead>
             <tbody>
               {filtered.map((counselor, index) => (
-                <tr key={counselor.name} className="border-b border-beige-200 last:border-0 hover:bg-beige-50 transition-colors">
-                  <td className="py-3 px-4 text-sm text-beige-300">{index + 1}</td>
+                <tr key={counselor.name} className="border-b border-sage-200 last:border-0 hover:bg-sage-50 transition-colors">
+                  <td className="py-3 px-4 text-sm text-sage-300">{index + 1}</td>
                   <td className="py-3 px-4 text-sm font-medium text-black">{counselor.name}</td>
                   <td className="py-3 px-4 text-sm text-accent">{counselor.credentials}</td>
                   <td className="py-3 px-4 text-xs text-black-light">{counselor.education}</td>
                   <td className="py-3 px-4">
                     <div className="flex flex-wrap gap-1">
                       {counselor.specialty.map((s) => (
-                        <span key={s} className="text-xs px-2 py-0.5 rounded-full bg-beige-50 text-black-light">{s}</span>
+                        <span key={s} className="text-xs px-2 py-0.5 rounded-full bg-sage-50 text-black-light">{s}</span>
                       ))}
                     </div>
                   </td>

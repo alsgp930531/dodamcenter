@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FBF9F7"/>
+  <!-- Person sitting on chair -->
+  <circle cx="200" cy="120" r="30" fill="#8B7355" opacity="0.2"/>
+  <circle cx="200" cy="120" r="24" fill="#8B7355" opacity="0.35"/>
+  <!-- Body -->
+  <path d="M180 150 C180 150, 175 200, 178 220 L222 220 C225 200, 220 150, 220 150" fill="#8B7355" opacity="0.25"/>
+  <!-- Chair -->
+  <rect x="160" y="210" width="80" height="8" rx="4" fill="#8B7355" opacity="0.3"/>
+  <rect x="168" y="218" width="4" height="50" rx="2" fill="#8B7355" opacity="0.2"/>
+  <rect x="228" y="218" width="4" height="50" rx="2" fill="#8B7355" opacity="0.2"/>
+  <!-- Thought bubbles -->
+  <circle cx="260" cy="100" r="12" fill="#E8DFD5"/>
+  <circle cx="280" cy="85" r="18" fill="#E8DFD5"/>
+  <circle cx="305" cy="75" r="26" fill="#E8DFD5"/>
+  <!-- Heart in bubble -->
+  <path d="M298 72 C295 66, 288 66, 288 72 C288 66, 281 66, 278 72 C278 80, 288 86, 288 86 C288 86, 298 80, 298 72Z" fill="#8B7355" opacity="0.4"/>
+  <!-- Decorative dots -->
+  <circle cx="100" cy="300" r="4" fill="#8B7355" opacity="0.1"/>
+  <circle cx="120" cy="310" r="6" fill="#8B7355" opacity="0.08"/>
+  <circle cx="300" cy="290" r="5" fill="#8B7355" opacity="0.1"/>
+  <!-- Label -->
+  <text x="200" y="340" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="600" fill="#8B7355" opacity="0.6">1:1 맞춤 상담</text>
+</svg>

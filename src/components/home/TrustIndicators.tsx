@@ -82,7 +82,7 @@ function AnimatedLine({ x1, y1, x2, y2, delay, isActive }: {
   return (
     <line
       x1={x1} y1={y1} x2={x2} y2={y2}
-      stroke="#8B7355"
+      stroke="#6B8E5E"
       strokeWidth="1"
       strokeDasharray={length}
       strokeDashoffset={isActive ? 0 : length}
@@ -109,11 +109,11 @@ function AnimatedMarker({ loc, isActive }: {
       {/* Pulse ring for primary (Seoul) */}
       {loc.primary && (
         <>
-          <circle cx={loc.x} cy={loc.y} r="12" fill="none" stroke="#8B7355" strokeWidth="1" opacity="0.4">
+          <circle cx={loc.x} cy={loc.y} r="12" fill="none" stroke="#6B8E5E" strokeWidth="1" opacity="0.4">
             <animate attributeName="r" from="8" to="28" dur="2.5s" repeatCount="indefinite" />
             <animate attributeName="opacity" from="0.5" to="0" dur="2.5s" repeatCount="indefinite" />
           </circle>
-          <circle cx={loc.x} cy={loc.y} r="12" fill="none" stroke="#8B7355" strokeWidth="0.5" opacity="0.3">
+          <circle cx={loc.x} cy={loc.y} r="12" fill="none" stroke="#6B8E5E" strokeWidth="0.5" opacity="0.3">
             <animate attributeName="r" from="10" to="36" dur="3s" begin="0.8s" repeatCount="indefinite" />
             <animate attributeName="opacity" from="0.4" to="0" dur="3s" begin="0.8s" repeatCount="indefinite" />
           </circle>
@@ -121,13 +121,13 @@ function AnimatedMarker({ loc, isActive }: {
       )}
       {/* Small pulse for non-primary */}
       {!loc.primary && (
-        <circle cx={loc.x} cy={loc.y} r="4" fill="none" stroke="#8B7355" strokeWidth="0.5" opacity="0.3">
+        <circle cx={loc.x} cy={loc.y} r="4" fill="none" stroke="#6B8E5E" strokeWidth="0.5" opacity="0.3">
           <animate attributeName="r" from="4" to="12" dur="2.5s" begin={`${loc.delay + 0.5}s`} repeatCount="indefinite" />
           <animate attributeName="opacity" from="0.4" to="0" dur="2.5s" begin={`${loc.delay + 0.5}s`} repeatCount="indefinite" />
         </circle>
       )}
       {/* Outer dot */}
-      <circle cx={loc.x} cy={loc.y} r={loc.primary ? 7 : 4.5} fill="#8B7355" />
+      <circle cx={loc.x} cy={loc.y} r={loc.primary ? 7 : 4.5} fill="#6B8E5E" />
       {/* Inner dot */}
       <circle cx={loc.x} cy={loc.y} r={loc.primary ? 3.5 : 2} fill="white" />
       {/* Label */}
@@ -247,7 +247,7 @@ export default function TrustIndicators() {
         >
           <span className="text-[11px] tracking-[0.4em] text-white/55 uppercase">Trust</span>
           <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-            숫자로 보는 도담상담센터
+            숫자로 보는 다온상담센터
           </h2>
         </motion.div>
 

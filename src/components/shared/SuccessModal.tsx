@@ -122,7 +122,7 @@ export default function SuccessModal({ isOpen, onClose, title, message }: Succes
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.4 }}
             >
-              <div className="w-12 h-px bg-beige-200 mx-auto my-6" />
+              <div className="w-12 h-px bg-sage-200 mx-auto my-6" />
               <button
                 onClick={onClose}
                 className="text-sm text-accent hover:text-accent-hover transition-colors font-medium"

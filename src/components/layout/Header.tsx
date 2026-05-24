@@ -73,11 +73,9 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt={SITE_CONFIG.name}
-              width={400}
-              height={112}
-              className={`h-[72px] md:h-[90px] lg:h-[112px] w-auto object-contain transition-all duration-300 ${
-                isScrolled || !isDarkBg ? '' : 'brightness-0 invert'
-              }`}
+              width={320}
+              height={320}
+              className="h-[60px] md:h-[72px] lg:h-[80px] w-auto object-contain transition-all duration-300"
               priority
             />
           </Link>
@@ -95,7 +93,7 @@ export default function Header() {
                   href={item.href}
                   className={`px-4 py-2 text-[15px] font-medium transition-colors duration-300 rounded-lg ${
                     isScrolled || !isDarkBg
-                      ? 'text-black-light hover:text-black hover:bg-beige-100'
+                      ? 'text-black-light hover:text-black hover:bg-sage-100'
                       : 'text-white/90 hover:text-white hover:bg-white/10'
                   }`}
                 >
@@ -115,13 +113,13 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-xl border border-beige-200 overflow-hidden"
+                      className="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-xl border border-sage-200 overflow-hidden"
                     >
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-5 py-3 text-sm text-black-light hover:bg-beige-50 hover:text-accent transition-colors"
+                          className="block px-5 py-3 text-sm text-black-light hover:bg-sage-50 hover:text-accent transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -202,7 +200,7 @@ export default function Header() {
                   )}
                 </div>
               ))}
-              <div className="pt-6 border-t border-beige-200">
+              <div className="pt-6 border-t border-sage-200">
                 <Link
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}

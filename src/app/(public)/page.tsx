@@ -1,5 +1,5 @@
 import HeroSection from '@/components/home/HeroSection';
-import DodamMarquee from '@/components/home/DodamMarquee';
+import DaonMarquee from '@/components/home/DaonMarquee';
 import BrandStory from '@/components/home/BrandStory';
 import PhotoRibbon from '@/components/home/PhotoRibbon';
 import ServiceShowcase from '@/components/home/ServiceShowcase';
@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <DodamMarquee />
+      <DaonMarquee />
       <BrandStory />
       <PhotoRibbon />
       <ServiceShowcase />

@@ -83,7 +83,7 @@ export default function AdminReviewsPage() {
 
       {/* Form */}
       {showForm && (
-        <div className="bg-white rounded-xl border border-beige-200 p-6 mb-8">
+        <div className="bg-white rounded-xl border border-sage-200 p-6 mb-8">
           <h2 className="font-semibold text-black mb-4">{editingReview ? '후기 수정' : '새 후기 등록'}</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -94,7 +94,7 @@ export default function AdminReviewsPage() {
                   required
                   value={form.clientInitial}
                   onChange={(e) => setForm({ ...form, clientInitial: e.target.value })}
-                  className="w-full px-3 py-2 rounded-lg border border-beige-200 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30"
+                  className="w-full px-3 py-2 rounded-lg border border-sage-200 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30"
                   placeholder="김○○"
                 />
               </div>
@@ -103,7 +103,7 @@ export default function AdminReviewsPage() {
                 <select
                   value={form.counselingType}
                   onChange={(e) => setForm({ ...form, counselingType: e.target.value })}
-                  className="w-full px-3 py-2 rounded-lg border border-beige-200 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30"
+                  className="w-full px-3 py-2 rounded-lg border border-sage-200 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30"
                 >
                   {counselingTypes.map((t) => <option key={t} value={t}>{t}</option>)}
                 </select>
@@ -113,7 +113,7 @@ export default function AdminReviewsPage() {
                 <select
                   value={form.rating}
                   onChange={(e) => setForm({ ...form, rating: Number(e.target.value) })}
-                  className="w-full px-3 py-2 rounded-lg border border-beige-200 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30"
+                  className="w-full px-3 py-2 rounded-lg border border-sage-200 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30"
                 >
                   {[5, 4.5, 4, 3.5, 3].map((r) => <option key={r} value={r}>{r}</option>)}
                 </select>
@@ -126,7 +126,7 @@ export default function AdminReviewsPage() {
                 rows={4}
                 value={form.content}
                 onChange={(e) => setForm({ ...form, content: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border border-beige-200 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 resize-none"
+                className="w-full px-3 py-2 rounded-lg border border-sage-200 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 resize-none"
                 placeholder="후기 내용을 입력하세요."
               />
             </div>
@@ -139,27 +139,27 @@ export default function AdminReviewsPage() {
 
       {/* Review List */}
       {reviews.length === 0 ? (
-        <div className="bg-white rounded-xl border border-beige-200 p-12 text-center">
+        <div className="bg-white rounded-xl border border-sage-200 p-12 text-center">
           <p className="text-black-light">등록된 후기가 없습니다. 위 버튼을 눌러 첫 번째 후기를 등록하세요.</p>
         </div>
       ) : (
         <div className="space-y-3">
           {reviews.map((review) => (
-            <div key={review.id} className="bg-white rounded-xl border border-beige-200 p-5">
+            <div key={review.id} className="bg-white rounded-xl border border-sage-200 p-5">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="font-medium text-black">{review.clientInitial}</span>
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-beige-50 text-accent">{review.counselingType}</span>
-                    <span className="text-xs text-beige-300">★ {review.rating}</span>
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-sage-50 text-accent">{review.counselingType}</span>
+                    <span className="text-xs text-sage-300">★ {review.rating}</span>
                   </div>
                   <p className="text-sm text-black-light">{review.content}</p>
-                  <p className="text-xs text-beige-300 mt-2">{new Date(review.createdAt).toLocaleDateString('ko-KR')}</p>
+                  <p className="text-xs text-sage-300 mt-2">{new Date(review.createdAt).toLocaleDateString('ko-KR')}</p>
                 </div>
                 <div className="flex items-center gap-2 ml-4 shrink-0">
                   <button
                     onClick={() => handleEdit(review)}
-                    className="text-xs px-3 py-1.5 rounded-lg bg-beige-50 text-black-light hover:bg-beige-100 transition-colors cursor-pointer"
+                    className="text-xs px-3 py-1.5 rounded-lg bg-sage-50 text-black-light hover:bg-sage-100 transition-colors cursor-pointer"
                   >
                     수정
                   </button>

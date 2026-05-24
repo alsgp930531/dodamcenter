@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FBF9F7"/>
+  <!-- Two people -->
+  <circle cx="155" cy="130" r="26" fill="#8B7355" opacity="0.3"/>
+  <circle cx="245" cy="130" r="26" fill="#8B7355" opacity="0.2"/>
+  <!-- Bodies -->
+  <path d="M135 160 C135 160, 130 210, 135 230 L175 230 C180 210, 175 160, 175 160" fill="#8B7355" opacity="0.2"/>
+  <path d="M225 160 C225 160, 220 210, 225 230 L265 230 C270 210, 265 160, 265 160" fill="#8B7355" opacity="0.15"/>
+  <!-- Connection line / bridge -->
+  <path d="M175 180 Q200 165, 225 180" stroke="#8B7355" stroke-width="3" stroke-dasharray="6 4" opacity="0.3" fill="none"/>
+  <!-- Heart above -->
+  <path d="M193 100 C190 94, 183 94, 183 100 C183 94, 176 94, 173 100 C173 108, 183 114, 183 114 C183 114, 193 108, 193 100Z" fill="#D4A574" opacity="0.4"/>
+  <path d="M227 100 C224 94, 217 94, 217 100 C217 94, 210 94, 207 100 C207 108, 217 114, 217 114 C217 114, 227 108, 227 100Z" fill="#D4A574" opacity="0.4"/>
+  <!-- Sofa -->
+  <rect x="120" y="230" width="160" height="10" rx="5" fill="#8B7355" opacity="0.2"/>
+  <rect x="115" y="225" width="8" height="40" rx="4" fill="#8B7355" opacity="0.15"/>
+  <rect x="277" y="225" width="8" height="40" rx="4" fill="#8B7355" opacity="0.15"/>
+  <!-- Decorative -->
+  <circle cx="80" cy="280" r="20" fill="#E8DFD5" opacity="0.5"/>
+  <circle cx="320" cy="280" r="20" fill="#E8DFD5" opacity="0.5"/>
+  <!-- Label -->
+  <text x="200" y="340" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="600" fill="#8B7355" opacity="0.6">함께하는 소통</text>
+</svg>

@@ -8,23 +8,23 @@ interface ReviewCardProps {
 
 export default function ReviewCard({ clientInitial, counselingType, content, rating, createdAt }: ReviewCardProps) {
   return (
-    <div className="bg-white rounded-2xl border border-beige-200 p-6 md:p-8 transition-all duration-300 hover:shadow-lg">
+    <div className="bg-white rounded-2xl border border-sage-200 p-6 md:p-8 transition-all duration-300 hover:shadow-lg">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-beige-100 text-accent flex items-center justify-center font-semibold text-sm">
+          <div className="w-10 h-10 rounded-full bg-sage-100 text-accent flex items-center justify-center font-semibold text-sm">
             {clientInitial.charAt(0)}
           </div>
           <div>
             <p className="font-medium text-black text-sm">{clientInitial}</p>
-            <span className="inline-block text-xs text-accent bg-beige-50 px-2 py-0.5 rounded-full">{counselingType}</span>
+            <span className="inline-block text-xs text-accent bg-sage-50 px-2 py-0.5 rounded-full">{counselingType}</span>
           </div>
         </div>
         <div className="flex items-center gap-1">
           {Array.from({ length: 5 }).map((_, i) => (
             <svg
               key={i}
-              className={`w-4 h-4 ${i < Math.floor(rating) ? 'text-accent' : 'text-beige-200'}`}
+              className={`w-4 h-4 ${i < Math.floor(rating) ? 'text-accent' : 'text-sage-200'}`}
               fill="currentColor"
               viewBox="0 0 20 20"
             >

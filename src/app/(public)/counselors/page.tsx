@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: '전문 상담팀',
-  description: '도담상담센터의 전문 상담팀을 소개합니다. 석·박사 학위와 공인 자격증을 보유한 전문가들이 함께합니다.',
+  description: '다온상담센터의 전문 상담팀을 소개합니다. 석·박사 학위와 공인 자격증을 보유한 전문가들이 함께합니다.',
 };
 
 const teamFeatures = [
@@ -50,7 +50,7 @@ export default function CounselorsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-beige-50">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl">
@@ -73,7 +73,7 @@ export default function CounselorsPage() {
           <AnimatedSection>
             <div className="text-center mb-16">
               <h2 className="text-2xl md:text-3xl font-bold text-black">
-                도담상담센터 상담팀의 강점
+                다온상담센터 상담팀의 강점
               </h2>
               <p className="mt-4 text-black-light text-lg">
                 고민 유형과 성향에 맞는 상담사를 센터에서 직접 배정해드립니다.
@@ -84,7 +84,7 @@ export default function CounselorsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {teamFeatures.map((feature, index) => (
               <AnimatedSection key={feature.title} delay={index * 0.1}>
-                <div className="bg-beige-50 rounded-2xl border border-beige-200 p-8 md:p-10 h-full">
+                <div className="bg-sage-50 rounded-2xl border border-sage-200 p-8 md:p-10 h-full">
                   <div className="text-accent mb-4">
                     {feature.icon}
                   </div>

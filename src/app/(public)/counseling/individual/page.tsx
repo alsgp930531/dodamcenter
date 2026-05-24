@@ -5,7 +5,7 @@ import Button from '@/components/shared/Button';
 export const metadata: Metadata = {
   title: '개인상담',
   description:
-    '1:1 맞춤 심리상담으로 우울, 불안, 스트레스, 자존감, 정체성 문제를 전문적으로 다룹니다. 도담상담센터 개인상담 안내.',
+    '1:1 맞춤 심리상담으로 우울, 불안, 스트레스, 자존감, 정체성 문제를 전문적으로 다룹니다. 다온상담센터 개인상담 안내.',
 };
 
 const features = [
@@ -71,7 +71,7 @@ export default function IndividualCounselingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-beige-50">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl">
@@ -113,7 +113,7 @@ export default function IndividualCounselingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
               <AnimatedSection key={feature.title} delay={index * 0.1}>
-                <div className="bg-beige-50 rounded-2xl p-8 h-full">
+                <div className="bg-sage-50 rounded-2xl p-8 h-full">
                   <div className="w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center text-sm font-bold mb-4">
                     {String(index + 1).padStart(2, '0')}
                   </div>
@@ -127,7 +127,7 @@ export default function IndividualCounselingPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 md:py-32 bg-beige-50">
+      <section className="py-24 md:py-32 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -151,7 +151,7 @@ export default function IndividualCounselingPage() {
                     {item.step}
                   </div>
                   {index < process.length - 1 && (
-                    <div className="hidden md:block absolute top-8 left-[calc(50%+40px)] w-[calc(100%-80px)] h-px bg-beige-200" />
+                    <div className="hidden md:block absolute top-8 left-[calc(50%+40px)] w-[calc(100%-80px)] h-px bg-sage-200" />
                   )}
                   <h3 className="text-lg font-semibold text-black mb-3">{item.title}</h3>
                   <p className="text-sm text-black-light leading-relaxed">{item.description}</p>
@@ -193,7 +193,7 @@ export default function IndividualCounselingPage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-24 md:py-32 bg-beige-50">
+      <section className="py-24 md:py-32 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-2xl mx-auto text-center">
@@ -208,7 +208,7 @@ export default function IndividualCounselingPage() {
                   80,000<span className="text-xl sm:text-2xl md:text-3xl font-medium">원</span>
                 </div>
                 <div className="mt-3 text-lg text-black-light group-hover/price:text-white/70 transition-colors duration-300">1회 / 50분</div>
-                <div className="mt-6 w-full h-px bg-beige-200 group-hover/price:bg-white/20 transition-colors duration-300" />
+                <div className="mt-6 w-full h-px bg-sage-200 group-hover/price:bg-white/20 transition-colors duration-300" />
                 <ul className="mt-6 space-y-3 text-left">
                   <li className="flex items-center gap-3 text-black-light group-hover/price:text-white/80 transition-colors duration-300">
                     <svg className="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -254,15 +254,15 @@ export default function IndividualCounselingPage() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight">
                 지금, 나를 위한<br />첫 걸음을 내딛어 보세요
               </h2>
-              <p className="mt-6 text-lg text-beige-200 max-w-xl mx-auto">
+              <p className="mt-6 text-lg text-sage-200 max-w-xl mx-auto">
                 상담에 대한 궁금한 점이 있으시면 부담 없이 문의해 주세요.
-                도담상담센터가 당신의 변화를 함께 하겠습니다.
+                다온상담센터가 당신의 변화를 함께 하겠습니다.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button href="/contact" size="lg">
                   상담 문의하기
                 </Button>
-                <Button href="/counseling" variant="custom" size="lg" className="border border-beige-200 text-beige-200 hover:bg-beige-200 hover:text-black">
+                <Button href="/counseling" variant="custom" size="lg" className="border border-sage-200 text-sage-200 hover:bg-sage-200 hover:text-black">
                   전체 상담 보기
                 </Button>
               </div>

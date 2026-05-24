@@ -89,7 +89,7 @@ export default function TestingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-beige-50">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl">
@@ -129,10 +129,10 @@ export default function TestingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {tests.map((test, index) => (
               <AnimatedSection key={test.title} delay={index * 0.1}>
-                <div className="group h-full rounded-2xl border border-beige-200 bg-white p-6 md:p-8 transition-all duration-300 hover:bg-dark hover:shadow-lg hover:-translate-y-1">
+                <div className="group h-full rounded-2xl border border-sage-200 bg-white p-6 md:p-8 transition-all duration-300 hover:bg-dark hover:shadow-lg hover:-translate-y-1">
                   {/* Icon + Title */}
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-beige-50 group-hover:bg-accent flex items-center justify-center text-accent group-hover:text-white shrink-0 transition-all duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-sage-50 group-hover:bg-accent flex items-center justify-center text-accent group-hover:text-white shrink-0 transition-all duration-300">
                       {test.icon}
                     </div>
                     <div>
@@ -151,11 +151,11 @@ export default function TestingPage() {
                   </p>
 
                   {/* Price & Duration */}
-                  <div className="flex items-center justify-between pt-5 border-t border-beige-100 group-hover:border-white/20 transition-colors duration-300">
+                  <div className="flex items-center justify-between pt-5 border-t border-sage-100 group-hover:border-white/20 transition-colors duration-300">
                     <span className="text-lg font-bold text-black group-hover:text-accent transition-colors duration-300">
                       {test.price}
                     </span>
-                    <span className="text-sm text-black-light group-hover:text-white/70 bg-beige-50 group-hover:bg-white/10 px-3 py-1 rounded-full transition-all duration-300">
+                    <span className="text-sm text-black-light group-hover:text-white/70 bg-sage-50 group-hover:bg-white/10 px-3 py-1 rounded-full transition-all duration-300">
                       {test.duration}
                     </span>
                   </div>
@@ -167,7 +167,7 @@ export default function TestingPage() {
       </section>
 
       {/* Process */}
-      <section className="py-24 md:py-32 bg-beige-50">
+      <section className="py-24 md:py-32 bg-sage-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -191,7 +191,7 @@ export default function TestingPage() {
 
                   {/* Connector Line (hidden on last item and mobile) */}
                   {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-7 left-[calc(50%+28px)] w-[calc(100%-56px)] h-px bg-beige-200" />
+                    <div className="hidden lg:block absolute top-7 left-[calc(50%+28px)] w-[calc(100%-56px)] h-px bg-sage-200" />
                   )}
 
                   <h3 className="text-lg font-semibold text-black mb-2">

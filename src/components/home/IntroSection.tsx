@@ -43,7 +43,7 @@ export default function IntroSection() {
               마음의 변화가<br />시작되는 곳
             </h2>
             <p className="mt-6 text-lg text-black-light max-w-2xl mx-auto leading-relaxed">
-              도담상담센터는 20~30대 청년의 심리적 건강과 성장을 전문적으로 지원합니다.
+              다온상담센터는 20~30대 청년의 심리적 건강과 성장을 전문적으로 지원합니다.
               검증된 상담사와 체계적인 프로그램으로 당신만의 변화를 이끌어냅니다.
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function IntroSection() {
           {values.map((value, index) => (
             <AnimatedSection key={value.title} delay={index * 0.15}>
               <div className="text-center group">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-beige-100 text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-sage-100 text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                   {value.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-black mb-3">{value.title}</h3>

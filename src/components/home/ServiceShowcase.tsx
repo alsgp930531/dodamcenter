@@ -11,42 +11,42 @@ const services = [
     title: '개인상담',
     category: '상담',
     description: '라이프사이클에 맞춘 1:1 맞춤 심리상담',
-    image: '/images/photos/value-counseling-1.jpg',
+    image: '/images/illustrations/individual.svg',
     href: '/counseling/individual',
   },
   {
     title: '커플상담',
     category: '상담',
     description: '관계 개선과 소통을 위한 전문 상담',
-    image: '/images/photos/value-counseling-2.jpg',
+    image: '/images/illustrations/couple.svg',
     href: '/counseling/couple',
   },
   {
     title: '가족상담',
     category: '상담',
     description: '건강한 가족 관계 회복을 지원합니다',
-    image: '/images/photos/service-group.jpg',
+    image: '/images/illustrations/family.svg',
     href: '/counseling/family',
   },
   {
     title: '그룹상담',
     category: '상담',
     description: '함께 성장하는 그룹 프로그램',
-    image: '/images/photos/ribbon-seminar-5.jpg',
+    image: '/images/illustrations/group.svg',
     href: '/counseling/group',
   },
   {
     title: '심리검사',
     category: '프로그램',
     description: '과학적 심리검사로 나를 이해하기',
-    image: '/images/photos/service-couple.jpg',
+    image: '/images/illustrations/testing.svg',
     href: '/testing',
   },
   {
     title: '성장 프로그램',
     category: '프로그램',
     description: '자기성장과 커리어 발전을 위한 워크숍',
-    image: '/images/photos/ribbon-seminar-2.jpg',
+    image: '/images/illustrations/growth.svg',
     href: '/programs',
   },
 ];
@@ -79,7 +79,7 @@ export default function ServiceShowcase() {
     <section
       ref={sectionRef}
       className={`py-16 md:py-24 lg:py-32 transition-colors duration-700 ease-in-out ${
-        isScrolled ? 'bg-beige-100' : 'bg-white'
+        isScrolled ? 'bg-sage-100' : 'bg-white'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -103,7 +103,7 @@ export default function ServiceShowcase() {
 
         {/* Category Tabs */}
         <div className="flex justify-center mb-16">
-          <div className="inline-flex rounded-full overflow-hidden border border-beige-300/50">
+          <div className="inline-flex rounded-full overflow-hidden border border-sage-300/50">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -160,7 +160,7 @@ export default function ServiceShowcase() {
             >
               <Link
                 href={service.href}
-                className="group block border-t border-beige-200 py-8 md:py-10"
+                className="group block border-t border-sage-200 py-8 md:py-10"
                 onMouseEnter={(e) => {
                   setHoveredIndex(index);
                   if (listRef.current) {
@@ -205,7 +205,7 @@ export default function ServiceShowcase() {
               </Link>
             </motion.div>
           ))}
-          <div className="border-t border-beige-200" />
+          <div className="border-t border-sage-200" />
         </div>
       </div>
     </section>

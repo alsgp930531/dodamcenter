@@ -34,7 +34,7 @@ NEXT_PUBLIC_FIREBASE_APP_ID=
 
 ## 6. Firebase 설정
 - [ ] Firebase Console → Authentication → 설정 → 승인된 도메인에 새 Vercel 주소 추가 (예: `프로젝트명.vercel.app`)
-- [ ] 커스텀 도메인 사용 시 해당 도메인도 추가 (예: `dodamcenter.com`)
+- [ ] 커스텀 도메인 사용 시 해당 도메인도 추가 (예: `www.daoncenter.com`)
 - [ ] Firebase Console → 프로젝트 설정 → 사용자 및 권한 → 클라이언트 Google 계정을 "소유자"로 추가
 
 ## 7. 도메인 연결 (커스텀 도메인 사용 시)

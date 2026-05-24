@@ -11,7 +11,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const variants = {
   primary: 'bg-accent text-white hover:bg-accent-hover',
   outline: 'border border-accent text-accent hover:bg-accent hover:text-white',
-  ghost: 'text-black-light hover:text-black hover:bg-beige-100',
+  ghost: 'text-black-light hover:text-black hover:bg-sage-100',
   custom: '',
 };
 

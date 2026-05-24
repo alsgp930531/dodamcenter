@@ -59,7 +59,7 @@ export function formatGovSupportMessage(data: {
   pastCounselingExperience?: string;
 }) {
   return [
-    '🏛 <b>정부지원 상담 신청이 접수되었습니다</b>',
+    '🎁 <b>청년 응원 패키지 신청이 접수되었습니다</b>',
     '',
     `<b>내담자 성명:</b> ${data.name}`,
     `<b>연락처:</b> ${data.phone}`,

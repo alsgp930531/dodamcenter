@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" rx="24" fill="#FBF9F7"/>
+  <!-- Clipboard -->
+  <rect x="130" y="80" width="140" height="190" rx="12" fill="#E8DFD5" opacity="0.6"/>
+  <rect x="170" y="70" width="60" height="20" rx="10" fill="#8B7355" opacity="0.3"/>
+  <!-- Checklist items -->
+  <rect x="155" y="115" width="16" height="16" rx="4" stroke="#8B7355" stroke-width="2" opacity="0.3"/>
+  <path d="M158 123 L163 128 L171 118" stroke="#8B7355" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+  <rect x="180" y="119" width="65" height="8" rx="4" fill="#8B7355" opacity="0.15"/>
+
+  <rect x="155" y="145" width="16" height="16" rx="4" stroke="#8B7355" stroke-width="2" opacity="0.3"/>
+  <path d="M158 153 L163 158 L171 148" stroke="#8B7355" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+  <rect x="180" y="149" width="50" height="8" rx="4" fill="#8B7355" opacity="0.15"/>
+
+  <rect x="155" y="175" width="16" height="16" rx="4" stroke="#8B7355" stroke-width="2" opacity="0.3"/>
+  <rect x="180" y="179" width="72" height="8" rx="4" fill="#8B7355" opacity="0.1"/>
+
+  <rect x="155" y="205" width="16" height="16" rx="4" stroke="#8B7355" stroke-width="2" opacity="0.3"/>
+  <rect x="180" y="209" width="55" height="8" rx="4" fill="#8B7355" opacity="0.1"/>
+  <!-- Magnifying glass -->
+  <circle cx="290" cy="240" r="35" stroke="#8B7355" stroke-width="3" opacity="0.25" fill="#8B7355" fill-opacity="0.05"/>
+  <line x1="315" y1="265" x2="335" y2="285" stroke="#8B7355" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
+  <!-- Brain icon inside magnifier -->
+  <path d="M278 230 Q278 222, 285 222 Q290 218, 295 222 Q302 222, 302 230 Q305 235, 302 240 Q302 248, 295 248 Q290 252, 285 248 Q278 248, 278 240 Q275 235, 278 230Z" fill="#8B7355" opacity="0.15"/>
+  <!-- Label -->
+  <text x="200" y="340" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="600" fill="#8B7355" opacity="0.6">나를 이해하기</text>
+</svg>

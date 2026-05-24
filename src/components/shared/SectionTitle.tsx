@@ -18,7 +18,7 @@ export default function SectionTitle({
   return (
     <div className={`${alignClass} mb-12 md:mb-16`}>
       {subtitle && (
-        <span className={`text-sm tracking-[0.2em] uppercase font-medium ${light ? 'text-beige-200' : 'text-accent'}`}>
+        <span className={`text-sm tracking-[0.2em] uppercase font-medium ${light ? 'text-sage-200' : 'text-accent'}`}>
           {subtitle}
         </span>
       )}
@@ -26,7 +26,7 @@ export default function SectionTitle({
         {title}
       </h2>
       {description && (
-        <p className={`mt-4 text-base sm:text-lg max-w-2xl ${align === 'center' ? 'mx-auto' : ''} ${light ? 'text-beige-200' : 'text-black-light'}`}>
+        <p className={`mt-4 text-base sm:text-lg max-w-2xl ${align === 'center' ? 'mx-auto' : ''} ${light ? 'text-sage-200' : 'text-black-light'}`}>
           {description}
         </p>
       )}

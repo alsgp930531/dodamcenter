@@ -28,7 +28,7 @@ const programs = [
     description: '감정을 인식하고 건강하게 표현하는 방법을 배워 정서적 안정감을 높입니다.',
     price: '90,000원',
     duration: '3주 과정',
-    image: '/images/photos/counseling-7.jpg',
+    image: '/images/photos/seminar-18.jpg',
   },
   {
     title: '커리어 리디자인',
@@ -75,7 +75,7 @@ export default function ProgramFilter() {
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                 activeCategory === cat
                   ? 'bg-accent text-white'
-                  : 'bg-beige-100 text-black-light hover:bg-beige-200'
+                  : 'bg-sage-100 text-black-light hover:bg-sage-200'
               }`}
             >
               {cat}
@@ -88,7 +88,7 @@ export default function ProgramFilter() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredPrograms.map((program, index) => (
           <AnimatedSection key={program.title} delay={index * 0.08}>
-            <div className="group rounded-2xl border border-beige-200 bg-white overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+            <div className="group rounded-2xl border border-sage-200 bg-white overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
               {/* Image */}
               <div className="relative overflow-hidden">
                 <div
@@ -112,7 +112,7 @@ export default function ProgramFilter() {
                 </p>
 
                 {/* Meta */}
-                <div className="mt-5 flex items-center justify-between pt-5 border-t border-beige-100">
+                <div className="mt-5 flex items-center justify-between pt-5 border-t border-sage-100">
                   <span className="text-lg font-bold text-black">
                     {program.price}
                   </span>

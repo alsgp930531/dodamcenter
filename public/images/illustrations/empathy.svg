@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="none">
+  <rect width="800" height="800" fill="#FBF9F7"/>
+
+  <!-- Warm background glow -->
+  <ellipse cx="400" cy="420" rx="280" ry="260" fill="#F5F0EB" opacity="0.8"/>
+  <ellipse cx="400" cy="440" rx="180" ry="170" fill="#E8DFD5" opacity="0.3"/>
+
+  <!-- Person on the left (being comforted) -->
+  <!-- Hair -->
+  <ellipse cx="320" cy="215" rx="42" ry="46" fill="#5C4033" opacity="0.75"/>
+  <!-- Head back view -->
+  <ellipse cx="320" cy="220" rx="38" ry="42" fill="#D4A574" opacity="0.55"/>
+  <!-- Hair detail -->
+  <path d="M282 210 Q285 180, 320 170 Q355 180, 358 210" fill="#5C4033" opacity="0.75"/>
+  <!-- Neck -->
+  <rect x="308" y="258" width="24" height="20" rx="6" fill="#D4A574" opacity="0.5"/>
+
+  <!-- Left person body / sweater -->
+  <path d="M270 278 Q268 290, 272 380 L280 520 L360 520 L368 380 Q372 290, 370 278 Q350 265, 320 263 Q290 265, 270 278Z" fill="#8B7355" opacity="0.35"/>
+  <!-- Sweater collar -->
+  <path d="M295 275 Q320 285, 345 275" stroke="#8B7355" stroke-width="2" opacity="0.3" fill="none"/>
+  <!-- Left arm (resting naturally) -->
+  <path d="M270 290 Q255 340, 258 400 Q260 430, 268 450" stroke="#8B7355" stroke-width="22" stroke-linecap="round" opacity="0.3" fill="none"/>
+
+  <!-- Person on the right (comforting) -->
+  <!-- Hair -->
+  <ellipse cx="480" cy="200" rx="44" ry="48" fill="#3D2B1F" opacity="0.7"/>
+  <!-- Head back view -->
+  <ellipse cx="480" cy="205" rx="40" ry="44" fill="#D4A574" opacity="0.5"/>
+  <!-- Hair detail - slightly longer -->
+  <path d="M440 195 Q445 160, 480 150 Q515 160, 520 195" fill="#3D2B1F" opacity="0.7"/>
+  <path d="M438 210 Q436 240, 442 255" stroke="#3D2B1F" stroke-width="8" stroke-linecap="round" opacity="0.5" fill="none"/>
+  <path d="M522 210 Q524 240, 518 255" stroke="#3D2B1F" stroke-width="8" stroke-linecap="round" opacity="0.5" fill="none"/>
+  <!-- Neck -->
+  <rect x="468" y="245" width="24" height="20" rx="6" fill="#D4A574" opacity="0.45"/>
+
+  <!-- Right person body / cardigan -->
+  <path d="M430 265 Q428 278, 432 370 L438 520 L522 520 L528 370 Q532 278, 530 265 Q510 250, 480 248 Q450 250, 430 265Z" fill="#A08060" opacity="0.3"/>
+  <!-- Cardigan collar -->
+  <path d="M455 262 Q480 272, 505 262" stroke="#A08060" stroke-width="2" opacity="0.25" fill="none"/>
+
+  <!-- Right arm reaching to left person's shoulder / back -->
+  <path d="M430 280 Q400 300, 360 310 Q340 318, 330 320" stroke="#D4A574" stroke-width="18" stroke-linecap="round" opacity="0.45" fill="none"/>
+  <!-- Hand on shoulder -->
+  <ellipse cx="328" cy="320" rx="16" ry="12" fill="#D4A574" opacity="0.5" transform="rotate(-10 328 320)"/>
+  <!-- Fingers detail -->
+  <path d="M318 315 Q314 318, 316 324" stroke="#D4A574" stroke-width="4" stroke-linecap="round" opacity="0.35" fill="none"/>
+
+  <!-- Right person's right arm -->
+  <path d="M530 280 Q545 340, 542 400 Q540 430, 535 450" stroke="#A08060" stroke-width="20" stroke-linecap="round" opacity="0.25" fill="none"/>
+
+  <!-- Cardigan sleeve on the arm reaching over -->
+  <path d="M430 278 Q410 295, 390 305" stroke="#A08060" stroke-width="20" stroke-linecap="round" opacity="0.28" fill="none"/>
+
+  <!-- Warm glow / aura between them -->
+  <ellipse cx="400" cy="340" rx="60" ry="80" fill="#D4A574" opacity="0.06"/>
+
+  <!-- Small sparkles / warmth particles -->
+  <circle cx="370" cy="180" r="3" fill="#D4A574" opacity="0.3"/>
+  <circle cx="420" cy="165" r="2.5" fill="#D4A574" opacity="0.25"/>
+  <circle cx="395" cy="150" r="2" fill="#D4A574" opacity="0.2"/>
+  <circle cx="350" cy="160" r="2" fill="#8B7355" opacity="0.15"/>
+  <circle cx="440" cy="175" r="1.8" fill="#8B7355" opacity="0.2"/>
+
+  <!-- Ground shadow -->
+  <ellipse cx="400" cy="530" rx="160" ry="12" fill="#8B7355" opacity="0.08"/>
+
+  <!-- Subtle decorative elements -->
+  <circle cx="160" cy="350" r="30" fill="#E8DFD5" opacity="0.3"/>
+  <circle cx="640" cy="350" r="30" fill="#E8DFD5" opacity="0.3"/>
+  <circle cx="140" cy="500" r="15" fill="#E8DFD5" opacity="0.2"/>
+  <circle cx="660" cy="500" r="15" fill="#E8DFD5" opacity="0.2"/>
+
+  <!-- Leaf decorations -->
+  <path d="M130 280 Q145 260, 160 280 Q145 275, 130 280Z" fill="#8B7355" opacity="0.12"/>
+  <path d="M650 290 Q665 270, 680 290 Q665 285, 650 290Z" fill="#8B7355" opacity="0.12"/>
+  <path d="M155 430 Q165 415, 180 425 Q165 422, 155 430Z" fill="#8B7355" opacity="0.1"/>
+  <path d="M620 440 Q630 425, 645 435 Q630 432, 620 440Z" fill="#8B7355" opacity="0.1"/>
+</svg>
